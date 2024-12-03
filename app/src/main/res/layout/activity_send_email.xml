@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context="com.plracticalcoding.accesing_android_features.SendEmailActivity">
+
+
+    <EditText
+        android:id="@+id/editemailadress"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:ems="10"
+        android:hint="Enter Email Adress"
+        android:inputType="text"
+        android:text="" />
+
+    <EditText
+        android:id="@+id/editTextsubject"
+        android:layout_width="300dp"
+        android:layout_gravity="center"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:hint="Enter Email Subject"
+        android:inputType="text"
+        android:text=""
+       />
+
+    <EditText
+        android:id="@+id/editTextemail"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Enter Your Email "
+        android:inputType="textMultiLine"
+     />
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/sendEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEND Email"
+         />
+
+
+</LinearLayout>

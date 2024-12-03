@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Android Apps</string>
+
+    <string name="app_name1">1</string>
+    <string name="app_name2">2</string>
+    <string name="app_name3">3</string>
+    <string name="app_name4">4</string>
+    <string name="app_name5">5</string>
+    <string name="app_name6">6</string>
+    <string name="app_name7">7</string>
+    <string name="app_name8">8</string>
+    <string name="app_name9">9</string>
+
+    <string name="solve">Solve</string>
+    <string name="clear">Clear</string>
+    <string name="enter_note_tital">Enter Note Tital</string>
+    <string name="enter_note">Enter Note</string>
+    <string name="cancel">cancel</string>
+    <string name="save">save</string>
+
+
+    <string name="big_text">Message: 🚀 Don\'t miss out on the latest updates and exclusive content from [Your App Name]! Stay connected and informed wherever you go. Tap to explore new features,
+        discover valuable insights, and engage with our vibrant community. Download the app now and join the conversation!</string>
+
+
+</resources>

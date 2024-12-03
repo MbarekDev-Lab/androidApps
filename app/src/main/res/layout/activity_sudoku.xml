@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:custom="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context="com.plracticalcoding.sudoku_board.MainActivitySudoku">
+
+    <com.plracticalcoding.sudoku_board.SudokuBoard
+        android:id="@+id/SudokuBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        custom:boardColor="#000000"
+        custom:cellFillColor="#6600DDFF"
+        custom:cellsHighightColor="#2600DDFF"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toTopOf="parent"
+        custom:layout_constraintVertical_bias="0.021" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        custom:layout_constraintBottom_toBottomOf="parent"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintHorizontal_bias="1.0"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/SudokuBoard"
+        custom:layout_constraintVertical_bias="0.0">
+
+        <Button
+            android:id="@+id/button1"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNOnePress"
+            android:text="@string/app_name1"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button2"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNTwoPress"
+            android:text="@string/app_name2"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button3"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNThreePress"
+            android:text="@string/app_name3"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button4"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNFourPress"
+            android:text="@string/app_name4"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button5"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNFivePress"
+            android:text="@string/app_name5"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button6"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNDSixPress"
+            android:text="@string/app_name6"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button7"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNDsevenPress"
+            android:text="@string/app_name7"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button8"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNEightPress"
+            android:text="@string/app_name8"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <Button
+            android:id="@+id/button9"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="BTNNinePress"
+            android:text="@string/app_name9"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/solveBTN"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:textSize="18sp"
+        android:text="@string/solve"
+        android:onClick="solve"
+        android:background="@drawable/solve_btn"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintHorizontal_bias="0.498"
+        custom:layout_constraintStart_toStartOf="parent"
+        custom:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
