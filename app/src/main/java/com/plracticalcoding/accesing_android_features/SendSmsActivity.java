@@ -20,7 +20,6 @@ import androidx.core.view.WindowInsetsCompat;
 import com.plracticalcoding.myapplication.R;
 
 public class SendSmsActivity extends AppCompatActivity {
-
     Button send;
     EditText message, number;
     String userMessage;

@@ -72,14 +72,14 @@ public class MainNotificationActivity extends AppCompatActivity {
 
     private void startNotification() {
         Intent i = new Intent(this, MainNotificationActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, i, PendingIntent.FLAG_IMMUTABLE);
         Intent actionIntent = new Intent(this, receivers.class);
         actionIntent.putExtra("toast", "this is a Notification");
-        PendingIntent actionPending = PendingIntent.getBroadcast(this, 0, actionIntent, 0);
+        PendingIntent actionPending = PendingIntent.getBroadcast(this, 0, actionIntent, PendingIntent.FLAG_IMMUTABLE);
         Notification.Action action = new Notification.Action.Builder(Icon.createWithResource(this, R.drawable.bell), "Tost Message", actionPending).build();
 
         Intent dismissIntent = new Intent(this, recieverDismiss.class);
-        PendingIntent dismissPending = PendingIntent.getBroadcast(this, 0, dismissIntent, 0);
+        PendingIntent dismissPending = PendingIntent.getBroadcast(this, 0, dismissIntent, PendingIntent.FLAG_IMMUTABLE);
         Notification.Action dismissAction = new Notification.Action.Builder(Icon.createWithResource(this, R.drawable.round_add_alert_24), "Dismiss", dismissPending).build();
 
         NotificationChannel channel = new NotificationChannel(CHANAL_ID, "1"

@@ -7,6 +7,7 @@ import androidx.room.PrimaryKey;
 public class MyImages {
     @PrimaryKey(autoGenerate = true)
     public int image_id;
+
     public String image_title;
     public String image_description;
     public byte[] image;

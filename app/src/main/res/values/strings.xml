@@ -21,6 +21,10 @@
 
     <string name="big_text">Message: 🚀 Don\'t miss out on the latest updates and exclusive content from [Your App Name]! Stay connected and informed wherever you go. Tap to explore new features,
         discover valuable insights, and engage with our vibrant community. Download the app now and join the conversation!</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_settings">Ajustes</string>
+    <string name="nav_profile">Perfil</string>
+    <string name="nav_about">Acerca de</string>
 
 
 </resources>

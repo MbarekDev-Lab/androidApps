@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
@@ -26,7 +25,7 @@
         tools:targetApi="31">
         <receiver android:name="com.plracticalcoding.notification.receivers" />
         <receiver android:name="com.plracticalcoding.notification.recieverDismiss" />
-
+        <service android:name=".BluetoothPrinterService" />
         <activity
             android:name="com.plracticalcoding.testCode.MainActivitytoshowPopRecycleView"
             android:exported="true">
@@ -37,9 +36,6 @@
         </activity>
         <activity
             android:name="com.plracticalcoding.asyncTaskClass.MainActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.plracticalcoding.testCode.Test"
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.firbase_db.PhoneSignActivity"
@@ -112,7 +108,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/bell" />
