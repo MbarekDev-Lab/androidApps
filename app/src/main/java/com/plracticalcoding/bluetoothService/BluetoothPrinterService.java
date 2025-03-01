@@ -1,5 +1,7 @@
 package com.plracticalcoding.bluetoothService;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -12,6 +14,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.os.Binder;
 import android.os.Build;
 import android.os.Handler;
@@ -20,13 +23,17 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+
+import com.plracticalcoding.myapplication.R;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
+//public class BluetoothPrinterService extends Service {
 public class BluetoothPrinterService extends Service {
 
     // Constants for logging, notifications, and Bluetooth
@@ -35,6 +42,7 @@ public class BluetoothPrinterService extends Service {
     private static final int NOTIFICATION_ID = 1;
     // Standard SPP UUID (Serial Port Profile)
     private static final UUID PRINTER_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    private static final boolean TODO = false;
 
     // Binder for activities to interact with the service
     private final IBinder binder = new LocalBinder();
@@ -93,6 +101,7 @@ public class BluetoothPrinterService extends Service {
     }
 
     // Called when the service is first created
+    @SuppressLint("ForegroundServiceType")
     @Override
     public void onCreate() {
         super.onCreate();
@@ -154,7 +163,27 @@ public class BluetoothPrinterService extends Service {
                 }
                 return false;
             }
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return TODO;
+            }
             Log.d(TAG, "Attempting to connect to device: " + device.getName());
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return TODO;
+            }
             socket = device.createRfcommSocketToServiceRecord(PRINTER_UUID);
             socket.connect(); // Blocking call - will throw IOException if fails
             isConnected = true;
@@ -273,13 +302,11 @@ public class BluetoothPrinterService extends Service {
 
     // Method to create the notification channel (for Android Oreo and above)
     private void createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
-                    "Bluetooth Printer Service Channel",
-                    NotificationManager.IMPORTANCE_LOW);
-            NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
-        }
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
+                "Bluetooth Printer Service Channel",
+                NotificationManager.IMPORTANCE_LOW);
+        NotificationManager manager = getSystemService(NotificationManager.class);
+        manager.createNotificationChannel(channel);
     }
 
     // Method to register the Bluetooth state receiver

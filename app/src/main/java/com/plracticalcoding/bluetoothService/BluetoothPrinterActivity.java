@@ -1,11 +1,13 @@
 package com.plracticalcoding.bluetoothService;
 
+import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
@@ -14,8 +16,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.plracticalcoding.*;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.plracticalcoding.bluetoothService.BluetoothPrinterService;
 import com.plracticalcoding.myapplication.R;
@@ -26,7 +30,6 @@ public class BluetoothPrinterActivity extends AppCompatActivity implements Bluet
 
     private static final String TAG = "MainActivity";
 
-    // Member variables to interact with the service
     private BluetoothPrinterService bluetoothService;
     private boolean isServiceBound = false;
 
@@ -41,7 +44,7 @@ public class BluetoothPrinterActivity extends AppCompatActivity implements Bluet
     private BluetoothAdapter bluetoothAdapter;
 
     // **Add the printer's MAC address here**
-    private final String PRINTER_MAC_ADDRESS = "00:11:22:33:44:55"; // **REPLACE WITH YOUR PRINTER'S MAC ADDRESS**
+    private final String PRINTER_MAC_ADDRESS = "00:11:22:33:44:55";
 
     // Service connection to manage the service lifecycle
     private ServiceConnection connection = new ServiceConnection() {
@@ -59,7 +62,6 @@ public class BluetoothPrinterActivity extends AppCompatActivity implements Bluet
             }else{
                 Toast.makeText(BluetoothPrinterActivity.this, "Printer device not found!", Toast.LENGTH_SHORT).show();
             }
-
         }
 
         @Override
@@ -74,7 +76,7 @@ public class BluetoothPrinterActivity extends AppCompatActivity implements Bluet
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.bluetooth_activity);
 
         // Get references to UI elements
         connectButton = findViewById(R.id.connectButton);
@@ -129,8 +131,18 @@ public class BluetoothPrinterActivity extends AppCompatActivity implements Bluet
         // Check if the bluetooth is enabled
         if (bluetoothAdapter != null && bluetoothAdapter.isEnabled()) {
             // Get the list of paired devices
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return;
+            }
             Set<BluetoothDevice> pairedDevices = bluetoothAdapter.getBondedDevices();
-            if (pairedDevices.size() > 0) {
+            if (!pairedDevices.isEmpty()) {
                 for (BluetoothDevice device : pairedDevices) {
                     // **Use the MAC address to find the printer**
                     if (device.getAddress().equals(PRINTER_MAC_ADDRESS)) {
@@ -200,7 +212,7 @@ public class BluetoothPrinterActivity extends AppCompatActivity implements Bluet
     @Override
     public void onPrinterNotFound() {
         runOnUiThread(() -> {
-            Toast.makeText(MainActivity.this, "Printer device not found!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(BluetoothPrinterActivity.this, "Printer device not found!", Toast.LENGTH_SHORT).show();
         });
     }
 }
