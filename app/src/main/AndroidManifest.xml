@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission
-        android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.BLUETOOTH"
-        android:maxSdkVersion="30" />
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"
-        android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN"
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s"/>
 
     <application
         android:allowBackup="true"
@@ -31,19 +30,37 @@
         android:roundIcon="@drawable/sharp_adaptive_audio_mic_24"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
-        tools:targetApi="31">
+        tools:targetApi="34">
+
         <receiver android:name="com.plracticalcoding.notification.receivers" />
         <receiver android:name="com.plracticalcoding.notification.recieverDismiss" />
-        <service android:name="com.plracticalcoding.bluetoothService.BluetoothPrinterService"/>
+
+        <service android:name="com.plracticalcoding.bluetoothService.BluetoothPrinterService"
+            android:exported="true"
+            android:foregroundServiceType="connectedDevice"/>
 
         <activity
-            android:name="com.plracticalcoding.testCode.MainActivitytoshowPopRecycleView"
+            android:name="com.plracticalcoding.mainApp.MainAppActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.plracticalcoding.bluetoothService.BluetoothPrinterActivity"
+            android:exported="false"/>
+        <activity
+            android:name="com.plracticalcoding.bluetoothService.DeviceListActivity"
+            android:exported="false"
+            android:label="Select a Device"
+            android:theme="@style/Theme.AppCompat.Light.Dialog"/>
+        <activity
+            android:name="com.plracticalcoding.bluetoothService.MyActivity"
+            android:exported="false"/>
+
+
         <activity
             android:name="com.plracticalcoding.asyncTaskClass.MainActivity"
             android:exported="false" />
@@ -113,19 +130,18 @@
 
         <service
             android:name="com.plracticalcoding.firbase_db.MyFirbaseService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/bell" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/colorAccent" />
-
-
     </application>
 
 </manifest>
