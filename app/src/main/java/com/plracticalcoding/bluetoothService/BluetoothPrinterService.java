@@ -62,7 +62,6 @@ public class BluetoothPrinterService extends Service {
     public boolean connectToPrinter(BluetoothDevice device) {
         Log.d(TAG, "Connecting to printer: " + device.getName());
         try {
-            // Close any existing connection
             closeConnection();
             bluetoothSocket = device.createRfcommSocketToServiceRecord(MY_UUID);
             bluetoothSocket.connect();

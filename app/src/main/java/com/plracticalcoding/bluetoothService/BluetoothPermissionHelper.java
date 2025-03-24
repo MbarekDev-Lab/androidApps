@@ -16,12 +16,10 @@ public class BluetoothPermissionHelper {
 
     private static final String TAG = "BluetoothPermissionHelper";
 
-    // Request codes for different Bluetooth permissions
     public static final int BLUETOOTH_CONNECT_REQUEST_CODE = 100;
     public static final int BLUETOOTH_SCAN_REQUEST_CODE = 101;
     public static final int BLUETOOTH_ADVERTISE_REQUEST_CODE = 102;
 
-    // Bluetooth permissions
     private static final String BLUETOOTH_CONNECT_PERMISSION = Manifest.permission.BLUETOOTH_CONNECT;
     private static final String BLUETOOTH_SCAN_PERMISSION = Manifest.permission.BLUETOOTH_SCAN;
     private static final String BLUETOOTH_ADVERTISE_PERMISSION = Manifest.permission.BLUETOOTH_ADVERTISE;

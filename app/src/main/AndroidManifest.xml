@@ -33,6 +33,7 @@
         tools:targetApi="34">
 
         <receiver android:name="com.plracticalcoding.notification.receivers" />
+
         <receiver android:name="com.plracticalcoding.notification.recieverDismiss" />
 
         <service android:name="com.plracticalcoding.bluetoothService.BluetoothPrinterService"
