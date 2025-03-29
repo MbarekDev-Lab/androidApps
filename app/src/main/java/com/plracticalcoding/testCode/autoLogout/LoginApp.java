@@ -30,7 +30,8 @@ public class LoginApp {
         // Simulate multiple login requests
         for (int i = 1; i <= 10; i++) {
             final String username = "user" + i;
-            executor.submit(() -> handleLogin(username, "password" + i));  // password is wrong for some users
+            int finalI = i;
+            executor.submit(() -> handleLogin(username, "password" + finalI));  // password is wrong for some users
         }
 
         // Shutdown executor after all tasks are finished
