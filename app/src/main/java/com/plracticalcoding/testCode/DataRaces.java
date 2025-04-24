@@ -1,4 +1,4 @@
-package com.plracticalcoding;
+package com.plracticalcoding.testCode;
 
 public class DataRaces {
     public static void main(String[] args) {

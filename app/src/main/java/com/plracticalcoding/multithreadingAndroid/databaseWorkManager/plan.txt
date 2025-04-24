@@ -1,0 +1,11 @@
+com.plracticalcoding.multithreadingAndroid.databaseWorkManager
+├── database
+│   ├── TaskEntity.java
+│   ├── TaskDao.java
+│   └── YourDatabase.java
+├── workers
+│   ├── InsertWorker.java
+│   ├── UpdateWorker.java
+│   └── FetchWorker.java
+├── DatabaseWorkManager.java
+└── MainActivity.java
