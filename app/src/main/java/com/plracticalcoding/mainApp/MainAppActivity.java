@@ -15,6 +15,9 @@ import com.plracticalcoding.myapplication.databinding.ActivityMainAppBinding;
 
 import com.plracticalcoding.myapplication.R;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class MainAppActivity extends AppCompatActivity {
  private AppBarConfiguration appBarConfiguration;
 private ActivityMainAppBinding binding;
@@ -43,6 +46,8 @@ private ActivityMainAppBinding binding;
             }
         });
     }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {

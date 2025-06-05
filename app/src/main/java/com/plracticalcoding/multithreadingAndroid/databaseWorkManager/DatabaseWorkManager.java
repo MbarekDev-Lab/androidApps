@@ -21,9 +21,9 @@ public class DatabaseWorkManager {
 
     public void startSequentialDatabaseWork(LifecycleOwner lifecycleOwner) {
 
-        WorkRequest insertWork = new OneTimeWorkRequest.Builder(InsertWorker.class).build();
-        WorkRequest updateWork = new OneTimeWorkRequest.Builder(UpdateWorker.class).build();
         WorkRequest fetchWork = new OneTimeWorkRequest.Builder(FetchWorker.class).build();
+        WorkRequest updateWork = new OneTimeWorkRequest.Builder(UpdateWorker.class).build();
+        WorkRequest insertWork = new OneTimeWorkRequest.Builder(InsertWorker.class).build();
 
         WorkContinuation continuation = WorkManager.getInstance(context)
                 .beginWith((OneTimeWorkRequest) insertWork)

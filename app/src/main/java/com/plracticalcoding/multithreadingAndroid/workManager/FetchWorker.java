@@ -7,6 +7,8 @@ import androidx.work.WorkerParameters;
 import androidx.work.Worker;
 import android.content.Context;
 
+import com.plracticalcoding.multithreadingAndroid.UploadDatatoDB.AppDatabase;
+
 import java.util.List;
 
 public class FetchWorker extends Worker {
@@ -18,7 +20,7 @@ public class FetchWorker extends Worker {
     @Override
     public Result doWork() {
         try {
-            YourDatabase db = YourDatabase.getInstance(getApplicationContext());
+            AppDatabase db = AppDatabase.getInstance(getApplicationContext());
             List<TaskEntity> tasks = db.taskDao().getAllTasks();
 
             Log.d("FetchWorker", "Fetched " + tasks.size() + " tasks.");

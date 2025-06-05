@@ -7,9 +7,9 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.work.OneTimeWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.WorkRequest;
-
 public class DatabaseWorkManager {
     private final Context context;
+
 
     public DatabaseWorkManager(Context context) {
         this.context = context.getApplicationContext();

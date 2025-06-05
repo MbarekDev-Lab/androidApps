@@ -65,6 +65,22 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+
+
+    <string-array name="sort_options_array">
+        <item>@string/sort_by_placeholder</item>
+        <item>@string/sort_name_az</item>
+        <item>@string/sort_name_za</item>
+        <item>@string/sort_date_newest</item>
+        <item>@string/sort_date_oldest</item>
+    </string-array>
+
+    <string name="sort_by_placeholder">Sort by...</string>
+    <string name="sort_name_az">Name (A-Z)</string>
+    <string name="sort_name_za">Name (Z-A)</string>
+    <string name="sort_date_newest">Date (Newest First)</string>
+    <string name="sort_date_oldest">Date (Oldest First)</string>
+
     <string name="lorem_ipsum">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris
         volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus

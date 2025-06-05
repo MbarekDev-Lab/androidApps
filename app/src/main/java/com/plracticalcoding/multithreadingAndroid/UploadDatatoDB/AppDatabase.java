@@ -1,4 +1,4 @@
-package com.plracticalcoding.multithreadingAndroid.workManager;
+package com.plracticalcoding.multithreadingAndroid.UploadDatatoDB;
 
 import android.content.Context;
 
@@ -6,20 +6,23 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {TaskEntity.class}, version = 1)
-public abstract class YourDatabase extends RoomDatabase {
+import com.plracticalcoding.multithreadingAndroid.workManager.TaskDao;
+import com.plracticalcoding.multithreadingAndroid.workManager.TaskEntity;
 
-    private static volatile YourDatabase INSTANCE;
+@Database(entities = {TaskEntity.class}, version = 1)
+public abstract class AppDatabase extends RoomDatabase {
+
+    private static volatile AppDatabase INSTANCE;
 
     public abstract TaskDao taskDao();
 
-    public static YourDatabase getInstance(Context context) {
+    public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
-            synchronized (YourDatabase.class) {
+            synchronized (AppDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(
                         context.getApplicationContext(),
-                        YourDatabase.class,
+                        AppDatabase.class,
                         "your_database_name"
                     ).build();
                 }
