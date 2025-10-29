@@ -74,8 +74,7 @@ public class MyApplication extends Application {
                 periodicUploadRequest);
 
         Log.i(TAG, "Periodic upload worker '" + UNIQUE_UPLOAD_WORK_NAME + "' enqueued with KEEP policy.");
-        Log.i(TAG, "It will attempt to run approximately every " +
-                periodicUploadRequest.getWorkSpec().getIntervalDuration() / (60 * 1000) + " minutes, " +
+        Log.i(TAG, "It will attempt to run approximately every 60 minutes, " +
                 "subject to constraints and system optimizations.");
     }
 

@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 // import androidx.recyclerview.widget.LinearLayoutManager;
 // import androidx.recyclerview.widget.RecyclerView;
 
+import com.plracticalcoding.myapplication.R;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -57,9 +59,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main); // Your layout file
+        // Note: This is example code. Uncomment and create proper layout when needed.
+        // setContentView(R.layout.activity_main); // Your layout file
 
-        sortSpinner = findViewById(R.id.sortSpinner);
+        // sortSpinner = findViewById(R.id.sortSpinner);
         // recyclerViewItems = findViewById(R.id.recyclerViewItems);
 
         // Initialize sample data
@@ -75,10 +78,12 @@ public class MainActivity extends AppCompatActivity {
         // recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));
         // recyclerViewItems.setAdapter(myAdapter);
 
-        setupSortSpinner();
+        // setupSortSpinner();
     }
 
     private void setupSortSpinner() {
+        // Example code - uncomment when layout is ready
+        /*
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.sort_options_array, android.R.layout.simple_spinner_item);
@@ -101,9 +106,12 @@ public class MainActivity extends AppCompatActivity {
                 // Another interface callback
             }
         });
+        */
     }
 
     private void sortList(String criteria) {
+        // Example code - R.string resources not defined yet
+        /*
         // It's good practice to sort a copy or re-sort the original
         // and then update the adapter's list.
         List<MyDataItem> listToSort = new ArrayList<>(originalList); // Sort a copy
@@ -155,12 +163,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(item.toString());
         }
         // Toast.makeText(this, "Sorted by: " + criteria, Toast.LENGTH_SHORT).show();
-    }
-
-    // Helper method to make string comparisons cleaner, especially with localization
-    // (You'd add these to your strings.xml if you use them)
-    private String getString(int resId) {
-        return getResources().getString(resId);
+        */
     }
 }
 

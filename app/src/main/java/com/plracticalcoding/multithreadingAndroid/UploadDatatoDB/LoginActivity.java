@@ -14,8 +14,9 @@ import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
-import com.yourpackage.R; // Your R file
-import com.yourpackage.work.UserSpecificPeriodicWorker; // Your worker
+
+
+import com.plracticalcoding.myapplication.R;
 
 import java.util.concurrent.TimeUnit;
 
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login); // Your login layout
 
         editTextUserId = findViewById(R.id.editTextUserId); // Example
-        Button loginButton = findViewById(R.id.loginButton);
+        Button loginButton = findViewById(R.id.buttonLogin);
 
         loginButton.setOnClickListener(v -> {
             String userId = editTextUserId.getText().toString().trim();

@@ -45,9 +45,7 @@ public abstract class AppDatabase extends RoomDatabase {
         }
     };
 
-    public MyDao myDao() {
-        return null;
-    }
+    public abstract MyDao myDao();
 
     /*private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
         private final NoteDao noteDao;

@@ -14,6 +14,7 @@ import com.google.common.util.concurrent.ListenableFuture; // This is the return
 // import com.yourpackage.network.ApiClient; // Your network client
 // import com.yourpackage.network.ApiService; // Your Retrofit/other API service
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -36,8 +37,7 @@ public class UploadListenableWorker extends ListenableWorker {
 
     public UploadListenableWorker(@NonNull Context context, @NonNull WorkerParameters workerParams) {
         super(context, workerParams);
-        SQLiteCursor AppDatabase = null;
-        inventoryDao = AppDatabase.getDatabase(getApplicationContext()).inventoryDao();
+        inventoryDao = AppDatabase.getInstance(getApplicationContext()).inventoryDao();
         // apiService = ApiClient.getApiService(); // Initialize your API service
 
         // Using single thread executor for database access to ensure sequential operations if needed,
@@ -62,14 +62,14 @@ public class UploadListenableWorker extends ListenableWorker {
             // Stage 1: Fetch unsynced items from Room DB
             Log.d(TAG, "Stage 1: Fetching unsynced items from DB on thread: " + Thread.currentThread().getName());
             if (Thread.currentThread().isInterrupted()) { // Check for early interruption
-                throw new InterruptedException("Task was interrupted before fetching items.");
+                throw new java.util.concurrent.CompletionException(new InterruptedException("Task was interrupted before fetching items."));
             }
             return inventoryDao.getUnsyncedItems();
         }, databaseExecutor)
         .thenComposeAsync(itemsToUpload -> {
             // Stage 2: Upload items to server
             if (Thread.currentThread().isInterrupted()) {
-                throw new InterruptedException("Task was interrupted before uploading items.");
+                throw new java.util.concurrent.CompletionException(new InterruptedException("Task was interrupted before uploading items."));
             }
             if (itemsToUpload == null || itemsToUpload.isEmpty()) {
                 Log.i(TAG, "Stage 2: No items to upload. Completing with success.");
@@ -81,7 +81,7 @@ public class UploadListenableWorker extends ListenableWorker {
                     if (uploadSuccessful) {
                         Log.i(TAG, "Stage 2.1: Upload successful. Marking " + itemsToUpload.size() + " items as uploaded in DB.");
                         if (Thread.currentThread().isInterrupted()) {
-                            throw new InterruptedException("Task was interrupted before marking items.");
+                            throw new java.util.concurrent.CompletionException(new InterruptedException("Task was interrupted before marking items."));
                         }
                         markItemsAsUploadedInDb(itemsToUpload); // Blocking I/O on databaseExecutor
                     }
@@ -163,7 +163,7 @@ public class UploadListenableWorker extends ListenableWorker {
                 // Simulate network latency
                 for (int i = 0; i < 3; i++) {
                     if (Thread.currentThread().isInterrupted()) {
-                        throw new InterruptedException("Network upload interrupted during delay.");
+                        throw new java.util.concurrent.CompletionException(new InterruptedException("Network upload interrupted during delay."));
                     }
                     Thread.sleep(1000);
                 }

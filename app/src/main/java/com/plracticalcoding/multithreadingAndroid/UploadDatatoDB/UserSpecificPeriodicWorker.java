@@ -4,12 +4,11 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.concurrent.futures.ResolvableFuture;
 import androidx.work.Data;
 import androidx.work.ListenableWorker; // Or Worker, CoroutineWorker
 import androidx.work.WorkerParameters;
 import com.google.common.util.concurrent.ListenableFuture;
-import com.google.common.util.concurrent.SettableFuture; // Example for ListenableFuture
-import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.util.concurrent.SettableFuture;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -33,7 +32,7 @@ public class UserSpecificPeriodicWorker extends ListenableWorker {
     @NonNull
     @Override
     public ListenableFuture<Result> startWork() {
-        SettableFuture<Result> future = SettableFuture.create();
+        ResolvableFuture<Result> future = ResolvableFuture.create();
 
         backgroundExecutor.execute(() -> {
             if (TextUtils.isEmpty(userId)) {

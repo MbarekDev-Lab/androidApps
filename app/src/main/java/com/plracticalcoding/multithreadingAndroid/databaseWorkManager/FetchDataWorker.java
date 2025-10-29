@@ -44,7 +44,7 @@ public class FetchDataWorker extends Worker {
 
             // Process data and add to the String Builder:
             for (MyEntity entity : entities) {
-                dataStringBuilder.append("ID: ").append(entity.id).append(", Data: ").append(entity.data).append("\n");
+                dataStringBuilder.append("ID: ").append(entity.getId()).append(", Data: ").append(entity.data).append("\n");
             }
 
             // Create output data:

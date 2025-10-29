@@ -9,12 +9,13 @@ import androidx.room.RoomDatabase;
 import com.plracticalcoding.multithreadingAndroid.workManager.TaskDao;
 import com.plracticalcoding.multithreadingAndroid.workManager.TaskEntity;
 
-@Database(entities = {TaskEntity.class}, version = 1)
+@Database(entities = {TaskEntity.class, InventoryItem.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static volatile AppDatabase INSTANCE;
 
     public abstract TaskDao taskDao();
+    public abstract InventoryDao inventoryDao();
 
     public static AppDatabase getInstance(Context context) {
         if (INSTANCE == null) {
@@ -24,7 +25,8 @@ public abstract class AppDatabase extends RoomDatabase {
                         context.getApplicationContext(),
                         AppDatabase.class,
                         "your_database_name"
-                    ).build();
+                    ).fallbackToDestructiveMigration()
+                    .build();
                 }
             }
         }

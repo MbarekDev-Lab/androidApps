@@ -15,6 +15,7 @@ import androidx.work.impl.utils.futures.SettableFuture;
 
 import com.google.common.util.concurrent.ListenableFuture;
 import com.plracticalcoding.db.AppDatabase;
+import com.plracticalcoding.db.MyEntity;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -53,15 +54,15 @@ public class UploadWorker extends ListenableWorker {
         return future;
     }
 
-    private List<MyData> fetchPendingData() {
-        return db.myDataDao().getPendingData();
+    private List<MyEntity> fetchPendingData() {
+        return db.myDao().getPendingData();
     }
 
-    private boolean uploadDataToServer(List<MyData> dataList) {
-        for (MyData data : dataList) {
+    private boolean uploadDataToServer(List<MyEntity> dataList) {
+        for (MyEntity data : dataList) {
             if (sendToServer(data)) {
                 data.uploaded = true;
-                db.myDataDao().update(data);
+                db.myDao().update(data);
             } else {
                 return false; // fail fast
             }
@@ -69,7 +70,7 @@ public class UploadWorker extends ListenableWorker {
         return true;
     }
 
-    private boolean sendToServer(MyData data) {
+    private boolean sendToServer(MyEntity data) {
         try (Socket socket = new Socket("192.168.1.100", 1433);
              PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
              BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()))) {
@@ -92,7 +93,7 @@ private void userInActivity(){
                             .build())
                     .build();
 
-    WorkManager.getInstance(context).enqueueUniquePeriodicWork(
+    WorkManager.getInstance(getApplicationContext()).enqueueUniquePeriodicWork(
             "UploadWorkerTask",
             ExistingPeriodicWorkPolicy.KEEP,
             uploadRequest
