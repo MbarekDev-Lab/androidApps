@@ -1,4 +1,4 @@
-package com.plracticalcoding.firbase_db;
+package com.plracticalcoding.firbase;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -61,7 +61,7 @@ public class SignUp extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Toast.makeText(SignUp.this, "Your Account has been created", Toast.LENGTH_SHORT).show();
 
-                            startActivity(new Intent(SignUp.this, MainActivity.class));
+                            startActivity(new Intent(SignUp.this, FirbaseMainActivity.class));
                             finish();
 
                         } else {

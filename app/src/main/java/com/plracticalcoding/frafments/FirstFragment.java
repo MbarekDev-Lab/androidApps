@@ -1,4 +1,4 @@
-package com.plracticalcoding.mainApp;
+package com.plracticalcoding.frafments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

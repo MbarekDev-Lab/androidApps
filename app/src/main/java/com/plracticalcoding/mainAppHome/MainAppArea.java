@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
 
@@ -26,11 +27,26 @@ public class MainAppArea extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         Button multithreadingActivity = findViewById(R.id.areaMultithreadingActivity);
+        Button firbaseactivity = findViewById(R.id.firbaseactivity);
+        Button quiz_game = findViewById(R.id.quiz_game);
+
+
+        firbaseactivity.setOnClickListener(v -> {
+            Toast.makeText(this, "firbaseactivity APP", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, FirbaseMainActivity.class));
+        });
 
         multithreadingActivity.setOnClickListener(v -> {
             Toast.makeText(this, "MULTITHREADING APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MultithreadingAndroidActivity.class));
+        });
+
+
+        quiz_game.setOnClickListener(v -> {
+            Toast.makeText(this, "quiz_game APP", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, SplashScreen.class));
         });
 
 

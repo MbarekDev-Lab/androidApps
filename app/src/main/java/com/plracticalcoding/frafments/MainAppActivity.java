@@ -1,4 +1,4 @@
-package com.plracticalcoding.mainApp;
+package com.plracticalcoding.frafments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,9 +14,6 @@ import com.plracticalcoding.bluetoothService.BluetoothPrinterActivity;
 import com.plracticalcoding.myapplication.databinding.ActivityMainAppBinding;
 
 import com.plracticalcoding.myapplication.R;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class MainAppActivity extends AppCompatActivity {
  private AppBarConfiguration appBarConfiguration;

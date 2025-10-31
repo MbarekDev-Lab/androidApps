@@ -1,4 +1,4 @@
-package com.plracticalcoding.firbase_db;
+package com.plracticalcoding.firbase;
 
 import android.os.Bundle;
 

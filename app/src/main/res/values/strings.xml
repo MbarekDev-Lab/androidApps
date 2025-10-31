@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Android Apps</string>
+    <string name="create_account">do not have an account? <font color="#5b39c6">sign up</font> </string>
+    <string name="forgot_password"><u>forgot password?</u></string>
+
+    <string name="account_created">Account created successfully"></string>
+    <string name="account_not_created">Account not created</string>
+    <string name="login_failed">Login failed</string>
+    <string name="login_successful">Login successful</string>
+    <string name="logout_successful">Logout successful</string>
+
 
     <string name="app_name1">1</string>
     <string name="app_name2">2</string>
@@ -10,6 +19,7 @@
     <string name="app_name7">7</string>
     <string name="app_name8">8</string>
     <string name="app_name9">9</string>
+
 
     <string name="solve">Solve</string>
     <string name="clear">Clear</string>
@@ -64,7 +74,6 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
 
 
     <string-array name="sort_options_array">
