@@ -88,7 +88,7 @@ public class MainNotificationActivity extends AppCompatActivity {
         NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         manager.createNotificationChannel(channel);
 
-        Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.mbarek);
+        Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.select);
         String text = getResources().getString(R.string.big_text);
 
 

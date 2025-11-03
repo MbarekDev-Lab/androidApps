@@ -14,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
+import com.plracticalcoding.quizGame.mathGame.GameActivity;
 
 public class MainAppArea extends AppCompatActivity {
 
@@ -46,7 +47,7 @@ public class MainAppArea extends AppCompatActivity {
 
         quiz_game.setOnClickListener(v -> {
             Toast.makeText(this, "quiz_game APP", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, SplashScreen.class));
+            startActivity(new Intent(this, GameActivity.class));
         });
 
 

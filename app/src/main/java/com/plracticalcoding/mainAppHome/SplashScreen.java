@@ -34,6 +34,7 @@ public class SplashScreen extends AppCompatActivity {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.splash_anim);
         quizimg.startAnimation(animation);
         name_quiz.startAnimation(animation);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

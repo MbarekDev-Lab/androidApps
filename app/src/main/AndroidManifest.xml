@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
@@ -36,12 +37,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="34">
-
+        <activity
+            android:name="com.plracticalcoding.quizGame.mathGame.GameActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.quizGame.mathGame.MathGame"
+            android:exported="false" />
         <activity
             android:name="com.plracticalcoding.mainAppHome.Login_Page"
             android:exported="false"
-            android:theme="@style/AppThem_login_Page"/>
-
+            android:theme="@style/AppThem_login_Page" />
         <activity
             android:name="com.plracticalcoding.mainAppHome.MainAppArea"
             android:exported="true" />
@@ -131,7 +136,6 @@
         <activity
             android:name="com.plracticalcoding.sudoku_board.MainActivitySudoku"
             android:exported="false" />
-
         <activity
             android:name="com.plracticalcoding.mainAppHome.SplashScreen"
             android:exported="true"
