@@ -5,6 +5,44 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/googleg_standard_color_18"
     tools:context="com.plracticalcoding.quizGame.mathGame.GameActivity">
+
+    <Button
+        android:id="@+id/addition"
+        android:layout_width="137dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="56dp"
+        android:background="@android:drawable/editbox_dropdown_dark_frame"
+        android:gravity="center"
+        android:text="addition"
+        app:layout_constraintBottom_toTopOf="@+id/multiplication"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/subtraction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="289dp"
+        android:background="@android:drawable/editbox_dropdown_dark_frame"
+        android:gravity="center"
+        android:text="multiplication"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/multiplication"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:background="@android:drawable/editbox_dropdown_dark_frame"
+        android:gravity="center"
+        android:text="subtraction"
+        app:layout_constraintBottom_toTopOf="@+id/subtraction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
