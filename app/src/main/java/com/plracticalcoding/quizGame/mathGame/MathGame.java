@@ -7,14 +7,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import com.plracticalcoding.myapplication.R;
 
+import java.util.Locale;
 import java.util.Random;
 
 public class MathGame extends AppCompatActivity {
+    private static final long START_TIME_IN_MILLIS = 10000;
     TextView scoreText, lifeText, timeText, questionText;
     EditText answerInput;
     Button okButton, nextButton;
@@ -24,6 +27,10 @@ public class MathGame extends AppCompatActivity {
     int timeValue = 60;
     int correctAnswer;
     CountDownTimer timer;
+    Boolean timer_running;
+    long time_left_in_millis = START_TIME_IN_MILLIS;
+    int userLife;
+
     Random random;
 
     @Override
@@ -42,8 +49,15 @@ public class MathGame extends AppCompatActivity {
         random = new Random();
         gameContinue();
 
-        okButton.setOnClickListener(view -> checkAnswer());
-        nextButton.setOnClickListener(view -> gameContinue());
+        okButton.setOnClickListener(view -> {
+            pauseTimer();
+            checkAnswer();
+        });
+        nextButton.setOnClickListener(view -> {
+            gameContinue();
+            resetTimer();
+            //updateTimer();
+        });
     }
 
     private void gameContinue() {
@@ -60,7 +74,30 @@ public class MathGame extends AppCompatActivity {
     private void startTimer() {
         if (timer != null) timer.cancel();
 
-        timer = new CountDownTimer(timeValue * 1000, 1000) {
+        timer = new CountDownTimer(time_left_in_millis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                time_left_in_millis = millisUntilFinished;
+                updateText();
+            }
+
+            @Override
+            public void onFinish() {
+                timer_running = false;
+
+                pauseTimer();
+                resetTimer();
+                updateTimer();
+
+                userLife = userLife - 1;
+                questionText.setText("Sorry! Time is up!");
+
+            }
+        }.start();
+        timer_running = true;
+
+
+        /*timer = new CountDownTimer(timeValue * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 timeValue = (int) (millisUntilFinished / 1000);
@@ -79,7 +116,20 @@ public class MathGame extends AppCompatActivity {
                     gameContinue();
                 }
             }
-        }.start();
+        }.start();*/
+    }
+
+    private void resetTimer() {
+    }
+
+    private void pauseTimer() {
+    }
+
+    private void updateText() {
+        int seconds = (int) (time_left_in_millis / 1000);
+        String time = String.format(Locale.getDefault(), "%02d", seconds);
+        timeText.setText(time);
+
     }
 
     private void checkAnswer() {
@@ -90,6 +140,8 @@ public class MathGame extends AppCompatActivity {
         }
 
         int playerAnswer = Integer.parseInt(answerString);
+
+
         if (playerAnswer == correctAnswer) {
             score++;
             scoreText.setText(String.valueOf(score));
@@ -107,4 +159,11 @@ public class MathGame extends AppCompatActivity {
             }
         }
     }
+
+    private void updateTimer() {
+        timer_running = true;
+
+
+    }
+
 }
