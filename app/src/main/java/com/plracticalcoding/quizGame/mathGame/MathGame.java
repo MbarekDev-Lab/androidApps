@@ -47,8 +47,8 @@ public class MathGame extends AppCompatActivity {
     }
 
     private void gameContinue() {
-        int num1 = random.nextInt(50);
-        int num2 = random.nextInt(50);
+        int num1 = random.nextInt(100);
+        int num2 = random.nextInt(100);
         correctAnswer = num1 + num2;
 
         questionText.setText(num1 + " + " + num2 + " = ?");
@@ -84,7 +84,7 @@ public class MathGame extends AppCompatActivity {
 
     private void checkAnswer() {
         String answerString = answerInput.getText().toString();
-        if (answerString.equals("")) {
+        if (answerString.isEmpty()) {
             Toast.makeText(this, "Please enter an answer", Toast.LENGTH_SHORT).show();
             return;
         }

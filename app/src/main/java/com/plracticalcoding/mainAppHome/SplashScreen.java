@@ -45,9 +45,6 @@ public class SplashScreen extends AppCompatActivity {
         }, 5000);
 
 
-
-
-
         quizimg.setOnClickListener(view -> {
 
         });
