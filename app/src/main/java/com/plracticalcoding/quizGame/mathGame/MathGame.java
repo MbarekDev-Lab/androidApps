@@ -1,5 +1,6 @@
 package com.plracticalcoding.quizGame.mathGame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -24,12 +25,10 @@ public class MathGame extends AppCompatActivity {
 
     int score = 0;
     int life = 3;
-    int timeValue = 60;
     int correctAnswer;
     CountDownTimer timer;
-    Boolean timer_running;
+    boolean timer_running;
     long time_left_in_millis = START_TIME_IN_MILLIS;
-    int userLife;
 
     Random random;
 
@@ -38,13 +37,13 @@ public class MathGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_game);
 
-        scoreText = findViewById(R.id.textView5);
-        lifeText = findViewById(R.id.textView7);
-        timeText = findViewById(R.id.textView9);
-        questionText = findViewById(R.id.textView13);
-        answerInput = findViewById(R.id.editTextText2);
-        okButton = findViewById(R.id.button10);
-        nextButton = findViewById(R.id.button11);
+        scoreText = findViewById(R.id.textViewScore);
+        lifeText = findViewById(R.id.textViewLife);
+        timeText = findViewById(R.id.textViewTime);
+        questionText = findViewById(R.id.textViewQuestion);
+        answerInput = findViewById(R.id.editTextAnswer);
+        okButton = findViewById(R.id.buttonOk);
+        nextButton = findViewById(R.id.buttonNext);
 
         random = new Random();
         gameContinue();
@@ -54,25 +53,27 @@ public class MathGame extends AppCompatActivity {
             checkAnswer();
         });
         nextButton.setOnClickListener(view -> {
+            answerInput.setText("");
             gameContinue();
             resetTimer();
-            //updateTimer();
         });
     }
 
     private void gameContinue() {
+        okButton.setEnabled(true);
         int num1 = random.nextInt(100);
         int num2 = random.nextInt(100);
         correctAnswer = num1 + num2;
 
         questionText.setText(num1 + " + " + num2 + " = ?");
-        answerInput.setText("");
 
         startTimer();
     }
 
     private void startTimer() {
-        if (timer != null) timer.cancel();
+        if (timer != null) {
+            timer.cancel();
+        }
 
         timer = new CountDownTimer(time_left_in_millis, 1000) {
             @Override
@@ -84,86 +85,70 @@ public class MathGame extends AppCompatActivity {
             @Override
             public void onFinish() {
                 timer_running = false;
-
                 pauseTimer();
-                resetTimer();
-                updateTimer();
-
-                userLife = userLife - 1;
+                life--;
+                lifeText.setText(String.valueOf(life));
                 questionText.setText("Sorry! Time is up!");
+                okButton.setEnabled(false);
 
+                if (life == 0) {
+                    Toast.makeText(MathGame.this, "Game Over!", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(MathGame.this, MathResultActivity.class);
+                    intent.putExtra("score", score);
+                    startActivity(intent);
+                    finish();
+                }
             }
         }.start();
         timer_running = true;
-
-
-        /*timer = new CountDownTimer(timeValue * 1000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                timeValue = (int) (millisUntilFinished / 1000);
-                timeText.setText(String.valueOf(timeValue));
-            }
-
-            @Override
-            public void onFinish() {
-                life--;
-                lifeText.setText(String.valueOf(life));
-                if (life == 0) {
-                    Toast.makeText(MathGame.this, "Game Over!", Toast.LENGTH_LONG).show();
-                    finish();
-                } else {
-                    Toast.makeText(MathGame.this, "Time’s up!", Toast.LENGTH_SHORT).show();
-                    gameContinue();
-                }
-            }
-        }.start();*/
     }
 
     private void resetTimer() {
+        time_left_in_millis = START_TIME_IN_MILLIS;
+        updateText();
     }
 
     private void pauseTimer() {
+        if(timer != null) {
+            timer.cancel();
+            timer_running = false;
+        }
     }
 
     private void updateText() {
-        int seconds = (int) (time_left_in_millis / 1000);
-        String time = String.format(Locale.getDefault(), "%02d", seconds);
-        timeText.setText(time);
-
+        int seconds = (int) (time_left_in_millis / 1000) % 60;
+        timeText.setText(String.format(Locale.getDefault(), "%02d", seconds));
     }
 
     private void checkAnswer() {
         String answerString = answerInput.getText().toString();
         if (answerString.isEmpty()) {
             Toast.makeText(this, "Please enter an answer", Toast.LENGTH_SHORT).show();
+            startTimer(); // Restart timer if no answer is given
             return;
         }
 
         int playerAnswer = Integer.parseInt(answerString);
-
+        resetTimer();
 
         if (playerAnswer == correctAnswer) {
             score++;
             scoreText.setText(String.valueOf(score));
-            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show();
+            questionText.setText("Correct!");
             gameContinue();
         } else {
             life--;
             lifeText.setText(String.valueOf(life));
-            Toast.makeText(this, "Wrong! Correct: " + correctAnswer, Toast.LENGTH_SHORT).show();
+            questionText.setText("Wrong! Correct: " + correctAnswer);
             if (life == 0) {
-                Toast.makeText(this, "Game Over!", Toast.LENGTH_LONG).show();
+                Toast.makeText(MathGame.this, "Game Over!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MathGame.this, MathResultActivity.class);
+                intent.putExtra("score", score);
+                startActivity(intent);
                 finish();
             } else {
                 gameContinue();
             }
         }
     }
-
-    private void updateTimer() {
-        timer_running = true;
-
-
-    }
-
 }

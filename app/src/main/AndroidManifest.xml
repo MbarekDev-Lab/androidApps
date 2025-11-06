@@ -38,6 +38,9 @@
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="34">
         <activity
+            android:name="com.plracticalcoding.quizGame.mathGame.MarthResultActivity"
+            android:exported="false" />
+        <activity
             android:name="com.plracticalcoding.quizGame.mathGame.GameActivity"
             android:exported="false" />
         <activity
