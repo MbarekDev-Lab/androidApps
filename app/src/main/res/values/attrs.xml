@@ -1,15 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<declare-styleable name="SudokuBoard">
-    <attr name="boardColor" format="color"/>
-    <attr name="cellFillColor" format="color"/>
-    <attr name="cellsHighightColor" format="color"/>
-    <attr name="letterColor" format="color"/>
-    <attr name="letterColerSolver" format="color"/>
-
-
-
-</declare-styleable>
-
-
+    <declare-styleable name="SudokuBoard">
+        <attr name="boardColor" format="color" />
+        <attr name="cellHighlightColor" format="color" />
+        <attr name="cellSelectColor" format="color" />
+        <attr name="letterColor" format="color" />
+        <attr name="letterColorSelected" format="color" />
+        <attr name="letterColorSolver" format="color" />
+        <attr name="cellFillColor" format="color" />
+    </declare-styleable>
 </resources>

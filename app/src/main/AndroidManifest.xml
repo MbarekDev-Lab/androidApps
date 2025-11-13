@@ -37,6 +37,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="34">
+
         <activity
             android:name="com.plracticalcoding.calculator.CalculatorActivity"
             android:exported="false" />

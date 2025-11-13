@@ -34,9 +34,6 @@ android {
 
     lint {
         baseline = file("lint-baseline.xml")
-    }
-
-    lint {
         ignore("UnusedResources")
     }
 }
@@ -65,12 +62,8 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:2.6.1"
 
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version"
     implementation "androidx.lifecycle:lifecycle-common-java8:$lifecycle_version"
-    implementation "androidx.room:room-runtime:2.6.1"
-    annotationProcessor "androidx.room:room-compiler:2.6.1"
 
-    implementation "com.google.firebase:firebase-auth:24.0.1"
     implementation "com.google.android.gms:play-services-auth:21.4.0"
 
 

@@ -14,7 +14,6 @@ import java.util.concurrent.Executors;
 
 @Database(entities = {MyEntity.class},version = 1)
 public abstract class AppDatabase extends RoomDatabase {
-
     private static AppDatabase instance;
 
     public static synchronized  AppDatabase getInstance(Context context){
@@ -47,7 +46,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract MyDao myDao();
 
-    /*private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
+    /* private static class PopulateDbAsyncTask extends AsyncTask<Void,Void,Void> {
         private final NoteDao noteDao;
 
         public PopulateDbAsyncTask(NoteDataBase dataBase) {

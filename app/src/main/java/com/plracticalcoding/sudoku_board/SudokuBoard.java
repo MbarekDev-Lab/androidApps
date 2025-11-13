@@ -20,11 +20,11 @@ import java.util.ArrayList;
 
 public class SudokuBoard extends View {
     private  final  int letterColor;
-    private  final  int letterColerSolver;
+    private  final  int letterColorSolver;
 
     private  final  int boardColor;
     private  final  int cellFillColor;
-    private  final  int cellsHighightColor;
+    private  final  int cellHighlightColor;
     private final Paint boardColorPaint = new Paint();
     private final Paint cellFillColorPaint = new Paint();
     private final Paint cellsHighightColorPaint = new Paint();
@@ -41,9 +41,9 @@ public class SudokuBoard extends View {
         try {
             boardColor          = a.getInteger(R.styleable.SudokuBoard_boardColor,0);
             cellFillColor       = a.getInteger(R.styleable.SudokuBoard_cellFillColor,0);
-            cellsHighightColor  = a.getInteger(R.styleable.SudokuBoard_cellsHighightColor,0);
+            cellHighlightColor  = a.getInteger(R.styleable.SudokuBoard_cellHighlightColor,0);
             letterColor         = a.getInteger(R.styleable.SudokuBoard_letterColor,0);
-            letterColerSolver   = a.getInteger(R.styleable.SudokuBoard_letterColerSolver,0);
+            letterColorSolver   = a.getInteger(R.styleable.SudokuBoard_letterColorSolver,0);
 
         }finally {
             a.recycle();
@@ -75,7 +75,7 @@ public class SudokuBoard extends View {
 
         cellsHighightColorPaint.setStyle(Paint.Style.FILL);
         cellsHighightColorPaint.setAntiAlias(true);
-        cellsHighightColorPaint.setColor(cellsHighightColor);
+        cellsHighightColorPaint.setColor(cellHighlightColor);
 
         letterPaint.setStyle(Paint.Style.FILL);
         letterPaint.setAntiAlias(true);
@@ -123,7 +123,7 @@ public class SudokuBoard extends View {
                 }
             }
         }
-        letterPaint.setColor(letterColerSolver);
+        letterPaint.setColor(letterColorSolver);
 
         for (ArrayList<Object> letter : solver.getEmptyBoxIndex()){
             int  r = (int)letter.get(0);

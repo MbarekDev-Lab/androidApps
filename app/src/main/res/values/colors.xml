@@ -12,6 +12,7 @@
     <color name="text_color">#FF000000</color>
     <color name="background_color">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
+    <color name="cyan_500">#00BCD4</color>
 
 
 </resources>
