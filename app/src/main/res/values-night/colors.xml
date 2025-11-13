@@ -9,9 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#E91E63</color>
     <color name="bar_color">#FF5722</color>
-    <color name="text_color">#FF000000</color>
-    <color name="background_color">#FFFFFFFF</color>
+    <color name="background_color">#FF000000</color>
+    <color name="text_color">#FFFFFFFF</color>
     <color name="orange">#FF5722</color>
-
 
 </resources>
