@@ -153,4 +153,9 @@
     <string name="btn_0">0</string>
     <string name="btn_dot">.</string>
 
+    <string name="multithreading_activity">Multithreading Activity</string>
+    <string name="firebase">Firebase</string>
+    <string name="async_activity">Async Activity</string>
+    <string name="quiz_game">Quiz Game</string>
+    <string name="calculator">Calculator</string>
 </resources>

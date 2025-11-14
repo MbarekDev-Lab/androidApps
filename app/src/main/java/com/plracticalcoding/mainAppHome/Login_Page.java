@@ -31,7 +31,7 @@ public class Login_Page extends AppCompatActivity {
         TextView forgot_password = findViewById(R.id.forget_passwordtv);
 
         forgot_password.setOnClickListener(v -> {
-            startActivity(new Intent(Login_Page.this, GameActivity.class ));
+            startActivity(new Intent(Login_Page.this, MainAppArea.class ));
 
         });
 

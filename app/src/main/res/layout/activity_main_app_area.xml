@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.plracticalcoding.mainAppHome.MainAppArea">
 
     <LinearLayout
@@ -17,29 +19,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Multithreading Activity" />
+            android:text="@string/multithreading_activity" />
 
         <Button
             android:id="@+id/firbaseactivity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Firebase" />
+            android:text="@string/firebase" />
 
         <Button
             android:id="@+id/asyncTasksActivity2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Async Activity" />
+            android:text="@string/async_activity" />
 
         <Button
             android:id="@+id/quiz_game"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="Quiz Game" />
+            android:text="@string/quiz_game" />
+
+
+        <Button
+            android:id="@+id/calculator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="@string/calculator" />
 
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

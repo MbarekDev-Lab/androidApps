@@ -11,6 +11,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.plracticalcoding.calculator.CalculatorActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
@@ -32,6 +33,8 @@ public class MainAppArea extends AppCompatActivity {
         Button multithreadingActivity = findViewById(R.id.areaMultithreadingActivity);
         Button firbaseactivity = findViewById(R.id.firbaseactivity);
         Button quiz_game = findViewById(R.id.quiz_game);
+        Button calculator = findViewById(R.id.calculator);
+
 
 
         firbaseactivity.setOnClickListener(v -> {
@@ -48,6 +51,12 @@ public class MainAppArea extends AppCompatActivity {
         quiz_game.setOnClickListener(v -> {
             Toast.makeText(this, "quiz_game APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, GameActivity.class));
+        });
+
+
+        calculator.setOnClickListener(v -> {
+            Toast.makeText(this, "CalculatorActivity APP", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, CalculatorActivity.class));
         });
 
 

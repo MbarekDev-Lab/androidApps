@@ -1,4 +1,4 @@
-package com.plracticalcoding.frafments;
+package com.plracticalcoding.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
