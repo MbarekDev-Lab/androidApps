@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/sharp_adaptive_audio_mic_24"
-    tools:context="com.plracticalcoding.mainAppHome.Login_Page">
+    tools:context="com.plracticalcoding.auth.Login_Page">
 
     <ImageView
         android:id="@+id/imageView2"

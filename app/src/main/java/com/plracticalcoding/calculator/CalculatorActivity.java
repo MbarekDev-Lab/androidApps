@@ -82,4 +82,8 @@ public class CalculatorActivity extends AppCompatActivity {
             Context.exit();
         }
     }
+
+
+
+
 }

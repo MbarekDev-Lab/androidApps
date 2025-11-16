@@ -158,4 +158,26 @@
     <string name="async_activity">Async Activity</string>
     <string name="quiz_game">Quiz Game</string>
     <string name="calculator">Calculator</string>
+
+
+    <!-- GassingNumberSplash-->
+    <string name="gassingNumbersplashtxt"> please  select a number of digits the numberr of digits that i keep in mind</string>
+    <string name="guess_title">I have a number in mind</string>
+    <string name="guesses_left">You have 10 guesses left</string>
+    <string name="enter_your_guess">Enter your guess</string>
+    <string name="your_guess_hint">Your guess</string>
+    <string name="confirm_button">CONFIRM</string>
+
+    <!-- GassingNumberGameActivity -->
+    <string name="guesses_left_format">You have %d guesses left</string>
+    <string name="please_enter_number">Please enter a number</string>
+    <string name="invalid_number_format">Invalid number format</string>
+    <string name="guess_too_high">Your last guess %d was too high. Try a lower number.</string>
+    <string name="guess_too_low">Your last guess %d was too low. Try a higher number.</string>
+    <string name="game_title">Number Guessing Game</string>
+    <string name="win_message">Congratulations! You won the game. My guess was %d. You found my number in %d attempts. Your guesses: %s. Would you like to play again?</string>
+    <string name="lose_message">Sorry, you lost. You\'ve used all your guesses. My number was %d. Your guesses: %s. Would you like to play again?</string>
+    <string name="play_again">Play Again</string>
+    <string name="no">No</string>
+
 </resources>

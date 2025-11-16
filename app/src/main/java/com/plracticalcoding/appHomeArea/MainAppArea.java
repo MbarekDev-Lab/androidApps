@@ -1,4 +1,4 @@
-package com.plracticalcoding.mainAppHome;
+package com.plracticalcoding.appHomeArea;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,8 @@ import com.plracticalcoding.calculator.CalculatorActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
+import com.plracticalcoding.number_guessing.GassingNumberActivity;
+import com.plracticalcoding.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
 
 public class MainAppArea extends AppCompatActivity {
@@ -34,6 +36,7 @@ public class MainAppArea extends AppCompatActivity {
         Button firbaseactivity = findViewById(R.id.firbaseactivity);
         Button quiz_game = findViewById(R.id.quiz_game);
         Button calculator = findViewById(R.id.calculator);
+        Button gussing_num = findViewById(R.id.gussing_num);
 
 
 
@@ -57,6 +60,11 @@ public class MainAppArea extends AppCompatActivity {
         calculator.setOnClickListener(v -> {
             Toast.makeText(this, "CalculatorActivity APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, CalculatorActivity.class));
+        });
+
+        gussing_num.setOnClickListener(v -> {
+            Toast.makeText(this, "Gussing_num APP", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, GassingNumberSplash.class));
         });
 
 

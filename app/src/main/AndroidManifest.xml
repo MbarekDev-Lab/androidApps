@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.SEND_SMS" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -37,7 +36,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight"
         tools:targetApi="34">
-
+        <activity
+            android:name="com.plracticalcoding.number_guessing.GassingNumberGameActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.number_guessing.GassingNumberActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.number_guessing.GassingNumberSplash"
+            android:exported="false" />
         <activity
             android:name="com.plracticalcoding.calculator.CalculatorActivity"
             android:exported="false" />
@@ -51,12 +58,9 @@
             android:name="com.plracticalcoding.quizGame.mathGame.MathGame"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.mainAppHome.Login_Page"
+            android:name="com.plracticalcoding.auth.Login_Page"
             android:exported="false"
             android:theme="@style/AppThem_login_Page" />
-        <activity
-            android:name="com.plracticalcoding.mainAppHome.MainAppArea"
-            android:exported="true" />
         <activity
             android:name="com.plracticalcoding.firbase.FirbaseMainActivity"
             android:exported="false" />
@@ -82,7 +86,7 @@
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.firbase.PhoneSignActivity"
-            android:exported="false" />
+            android.exported="false" />
         <activity
             android:name="com.plracticalcoding.firbase.ForgotPassActivity"
             android:exported="false" />
@@ -144,9 +148,8 @@
             android:name="com.plracticalcoding.sudoku_board.MainActivitySudoku"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.mainAppHome.SplashScreen"
-            android:exported="true"
-            android:theme="@style/AppThem_splashScreen">
+            android:name="com.plracticalcoding.appHomeArea.MainAppArea"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -167,9 +170,8 @@
 
         <service
             android:name="com.plracticalcoding.bluetoothService.BluetoothPrinterService"
-            android:exported="true"
-            android:foregroundServiceType="connectedDevice"
-            android:permission="TODO" />
+            android:exported="false"
+            android:foregroundServiceType="connectedDevice" />
 
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
