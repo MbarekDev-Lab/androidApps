@@ -1,10 +1,9 @@
-package com.plracticalcoding.fragments;
+package com.plracticalcoding.fragments.understand;
 
 import android.content.Intent;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
-import android.view.View;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -31,16 +30,14 @@ private ActivityMainAppBinding binding;
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fabMain.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        binding.fabMain.setOnClickListener(view -> {
 
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fabMain)
-                        .setAction("Action", null).show();
-                startActivity(new Intent(MainAppActivity.this, BluetoothPrinterActivity.class));
-                finish();
-            }
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                    .setAnchorView(R.id.fabMain)
+                    .setAction("Action", null).show();
+
+            startActivity(new Intent(MainAppActivity.this, BluetoothPrinterActivity.class));
+            finish();
         });
     }
 

@@ -34,8 +34,11 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/sharp_adaptive_audio_mic_24"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.DayNight"
+        android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         tools:targetApi="34">
+        <activity
+            android:name="com.plracticalcoding.fragments.fragment_ope.OpeFragmentActivity"
+            android:exported="false" />
         <activity
             android:name="com.plracticalcoding.number_guessing.GassingNumberGameActivity"
             android:exported="false" />

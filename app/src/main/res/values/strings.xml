@@ -179,5 +179,7 @@
     <string name="lose_message">Sorry, you lost. You\'ve used all your guesses. My number was %d. Your guesses: %s. Would you like to play again?</string>
     <string name="play_again">Play Again</string>
     <string name="no">No</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

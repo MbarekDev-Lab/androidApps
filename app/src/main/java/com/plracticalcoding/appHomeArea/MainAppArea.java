@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.plracticalcoding.calculator.CalculatorActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
+import com.plracticalcoding.fragments.fragment_ope.OpeFragmentActivity;
 import com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.number_guessing.GassingNumberActivity;
@@ -26,6 +27,7 @@ public class MainAppArea extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_app_area);
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -37,7 +39,7 @@ public class MainAppArea extends AppCompatActivity {
         Button quiz_game = findViewById(R.id.quiz_game);
         Button calculator = findViewById(R.id.calculator);
         Button gussing_num = findViewById(R.id.gussing_num);
-
+        Button opeFragmentActivity = findViewById(R.id.opeFragmentActivity);
 
 
         firbaseactivity.setOnClickListener(v -> {
@@ -65,6 +67,11 @@ public class MainAppArea extends AppCompatActivity {
         gussing_num.setOnClickListener(v -> {
             Toast.makeText(this, "Gussing_num APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, GassingNumberSplash.class));
+        });
+
+        opeFragmentActivity.setOnClickListener(v -> {
+            Toast.makeText(this, "ope Fragment Activity APP", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, OpeFragmentActivity.class));
         });
 
 
