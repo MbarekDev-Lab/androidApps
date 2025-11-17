@@ -179,6 +179,8 @@
     <string name="lose_message">Sorry, you lost. You\'ve used all your guesses. My number was %d. Your guesses: %s. Would you like to play again?</string>
     <string name="play_again">Play Again</string>
     <string name="no">No</string>
+
+    <string name="no_cities_found">No cities found</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -191,5 +193,13 @@
         <item>Berlin</item>
     </string-array>
 
+    <!-- MyDialogFragment -->
+    <string name="dialog_title">This is a dialog fragment</string>
+    <string name="dialog_name_hint">Name</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_enter_name">Enter Name</string>
+    <string name="hello_user">Hello, %1$s</string>
+    <string name="error_enter_name">Please enter a name</string>
 
 </resources>

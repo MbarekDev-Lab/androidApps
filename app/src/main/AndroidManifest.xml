@@ -37,6 +37,9 @@
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         tools:targetApi="34">
         <activity
+            android:name="com.plracticalcoding.fragments.fragment_ope.activities.DialogFragmentActivity"
+            android:exported="false" />
+        <activity
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.SecontFragmentActivity"
             android:exported="false" />
         <activity

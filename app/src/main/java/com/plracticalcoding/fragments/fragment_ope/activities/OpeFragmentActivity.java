@@ -1,5 +1,6 @@
 package com.plracticalcoding.fragments.fragment_ope.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -14,12 +15,16 @@ import com.plracticalcoding.myapplication.R;
 public class OpeFragmentActivity extends AppCompatActivity {
 
     Button replace_fragment;
+    Button dialogfragment;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ope_fragment);
         replace_fragment = findViewById(R.id.replace_fragment);
+        dialogfragment = findViewById(R.id.dialogfragment);
+
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -38,6 +43,10 @@ public class OpeFragmentActivity extends AppCompatActivity {
             fragmentTransaction1.replace(R.id.ope_fragment, opeSecondFragment);
             fragmentTransaction1.addToBackStack(null);
             fragmentTransaction1.commit();
+        });
+
+        dialogfragment.setOnClickListener(v -> {
+            startActivity(new Intent(this, DialogFragmentActivity.class));
         });
     }
 }
