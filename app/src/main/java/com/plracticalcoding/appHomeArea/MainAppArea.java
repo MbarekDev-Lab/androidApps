@@ -13,10 +13,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.plracticalcoding.calculator.CalculatorActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
-import com.plracticalcoding.fragments.fragment_ope.OpeFragmentActivity;
+import com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity;
 import com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
-import com.plracticalcoding.number_guessing.GassingNumberActivity;
 import com.plracticalcoding.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
 

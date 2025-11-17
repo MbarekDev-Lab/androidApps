@@ -182,4 +182,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string-array name="cities">
+        <item>New York</item>
+        <item>Agadir</item>
+        <item>Chicago</item>
+        <item>Hamburg</item>
+        <item>Buchholz InD</item>
+        <item>Berlin</item>
+    </string-array>
+
+
 </resources>

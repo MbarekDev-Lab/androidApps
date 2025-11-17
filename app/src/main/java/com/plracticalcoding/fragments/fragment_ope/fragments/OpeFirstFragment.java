@@ -1,4 +1,4 @@
-package com.plracticalcoding.fragments.fragment_ope;
+package com.plracticalcoding.fragments.fragment_ope.fragments;
 
 
 import android.os.Bundle;

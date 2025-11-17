@@ -1,4 +1,4 @@
-package com.plracticalcoding.fragments.fragment_ope;
+package com.plracticalcoding.fragments.fragment_ope.activities;
 
 import android.os.Bundle;
 import android.widget.Button;
@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.plracticalcoding.fragments.fragment_ope.fragments.ListFragment;
+import com.plracticalcoding.fragments.fragment_ope.fragments.OpeSecondFragment;
 import com.plracticalcoding.myapplication.R;
 
 public class OpeFragmentActivity extends AppCompatActivity {
@@ -19,22 +21,23 @@ public class OpeFragmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ope_fragment);
         replace_fragment = findViewById(R.id.replace_fragment);
 
-
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
-        OpeFirstFragment opeFirstFragment = new OpeFirstFragment();
-        fragmentTransaction.add(R.id.ope_fragment, opeFirstFragment);
+        ListFragment listFragment = new ListFragment();
+        fragmentTransaction.add(R.id.ope_fragment, listFragment);
         fragmentTransaction.commit();
 
         replace_fragment.setOnClickListener(v -> {
             FragmentManager fragmentManager1 = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction1 = fragmentManager1.beginTransaction();
-            OpeSecondFragment opeSecondFragment = new OpeSecondFragment();
+
+            // Use the factory method to create the fragment with a default position
+            OpeSecondFragment opeSecondFragment = OpeSecondFragment.newInstance(0);
+
             fragmentTransaction1.replace(R.id.ope_fragment, opeSecondFragment);
+            fragmentTransaction1.addToBackStack(null);
             fragmentTransaction1.commit();
         });
-
-
     }
 }

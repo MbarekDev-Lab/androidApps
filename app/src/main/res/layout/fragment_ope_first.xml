@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cyan_500"
-    tools:context="com.plracticalcoding.fragments.fragment_ope.OpeFirstFragment">
+    tools:context="com.plracticalcoding.fragments.fragment_ope.fragments.OpeFirstFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
