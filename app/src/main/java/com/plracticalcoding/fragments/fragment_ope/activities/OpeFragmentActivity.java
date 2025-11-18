@@ -54,6 +54,7 @@ public class OpeFragmentActivity extends AppCompatActivity {
         });
         infoBookActivity.setOnClickListener(v -> {
             startActivity(new Intent(this, InfoBookActivity.class));
+
         });
 
     }
