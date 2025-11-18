@@ -37,7 +37,13 @@
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         tools:targetApi="34">
         <activity
-            android:name="com.plracticalcoding.fragments.fragment_ope.activities.ContriesActivity"
+            android:name="com.plracticalcoding.fragments.fragment_ope.activities.WondersActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.fragments.fragment_ope.activities.MuseumsActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.fragments.fragment_ope.activities.CountriesActivity"
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.InfoBookActivity"
@@ -52,13 +58,13 @@
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.number_guessing.GassingNumberGameActivity"
+            android:name="com.plracticalcoding.quizGame.number_guessing.GassingNumberGameActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.number_guessing.GassingNumberActivity"
+            android:name="com.plracticalcoding.quizGame.number_guessing.GassingNumberActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.number_guessing.GassingNumberSplash"
+            android:name="com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash"
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.calculator.CalculatorActivity"
@@ -80,7 +86,7 @@
             android:name="com.plracticalcoding.firbase.FirbaseMainActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.multithreadingAndroid.workManager.MultithreadingAndroidActivity"
+            android:name="com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActivity"
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.testCode.MainActivitytoshowPopRecycleView"
@@ -118,27 +124,27 @@
             android:name="com.plracticalcoding.notification.MainNotificationActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.accesing_android_features.SpeechToText"
+            android:name="com.plracticalcoding.android_features.SpeechToText"
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.phonecall.PhoneCall_"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.accesing_android_features.SendEmailActivity"
+            android:name="com.plracticalcoding.android_features.SendEmailActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.accesing_android_features.SendSmsActivity"
+            android:name="com.plracticalcoding.android_features.SendSmsActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.photo_album_app.UpdateImageActivity"
+            android:name="com.plracticalcoding.photo_album.UpdateImageActivity"
             android:exported="false"
-            android:parentActivityName="com.plracticalcoding.photo_album_app.PhotoActivity" />
+            android:parentActivityName="com.plracticalcoding.photo_album.PhotoActivity" />
         <activity
-            android:name="com.plracticalcoding.photo_album_app.AddImageActivity"
+            android:name="com.plracticalcoding.photo_album.AddImageActivity"
             android:exported="false"
-            android:parentActivityName="com.plracticalcoding.photo_album_app.PhotoActivity" />
+            android:parentActivityName="com.plracticalcoding.photo_album.PhotoActivity" />
         <activity
-            android:name="com.plracticalcoding.photo_album_app.PhotoActivity"
+            android:name="com.plracticalcoding.photo_album.PhotoActivity"
             android:exported="true" />
         <activity
             android:name="com.plracticalcoding.Tack_Note.UpdateActivity"

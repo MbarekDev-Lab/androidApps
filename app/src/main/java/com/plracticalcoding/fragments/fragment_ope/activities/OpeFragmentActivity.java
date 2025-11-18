@@ -16,6 +16,8 @@ public class OpeFragmentActivity extends AppCompatActivity {
 
     Button replace_fragment;
     Button dialogfragment;
+    Button infoBookActivity;
+
 
 
     @Override
@@ -24,6 +26,8 @@ public class OpeFragmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ope_fragment);
         replace_fragment = findViewById(R.id.replace_fragment);
         dialogfragment = findViewById(R.id.dialogfragment);
+        infoBookActivity = findViewById(R.id.infoBookActivity);
+
 
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -48,5 +52,9 @@ public class OpeFragmentActivity extends AppCompatActivity {
         dialogfragment.setOnClickListener(v -> {
             startActivity(new Intent(this, DialogFragmentActivity.class));
         });
+        infoBookActivity.setOnClickListener(v -> {
+            startActivity(new Intent(this, InfoBookActivity.class));
+        });
+
     }
 }

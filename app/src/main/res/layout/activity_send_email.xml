@@ -8,7 +8,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context="com.plracticalcoding.accesing_android_features.SendEmailActivity">
+    tools:context="com.plracticalcoding.android_features.SendEmailActivity">
 
 
     <EditText

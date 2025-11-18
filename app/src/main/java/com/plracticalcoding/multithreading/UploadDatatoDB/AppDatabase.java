@@ -1,0 +1,35 @@
+package com.plracticalcoding.multithreading.UploadDatatoDB;
+
+import android.content.Context;
+
+import androidx.room.Database;
+import androidx.room.Room;
+import androidx.room.RoomDatabase;
+
+import com.plracticalcoding.multithreading.workManager.TaskDao;
+import com.plracticalcoding.multithreading.workManager.TaskEntity;
+
+@Database(entities = {TaskEntity.class, InventoryItem.class}, version = 2)
+public abstract class AppDatabase extends RoomDatabase {
+
+    private static volatile AppDatabase INSTANCE;
+
+    public abstract TaskDao taskDao();
+    public abstract InventoryDao inventoryDao();
+
+    public static AppDatabase getInstance(Context context) {
+        if (INSTANCE == null) {
+            synchronized (AppDatabase.class) {
+                if (INSTANCE == null) {
+                    INSTANCE = Room.databaseBuilder(
+                        context.getApplicationContext(),
+                        AppDatabase.class,
+                        "your_database_name"
+                    ).fallbackToDestructiveMigration()
+                    .build();
+                }
+            }
+        }
+        return INSTANCE;
+    }
+}

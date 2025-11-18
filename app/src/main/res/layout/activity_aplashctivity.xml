@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.plracticalcoding.number_guessing.GassingNumberSplash">
+    tools:context="com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash">
 
     <ImageView
         android:id="@+id/imageView3"

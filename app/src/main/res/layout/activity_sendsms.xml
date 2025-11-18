@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.plracticalcoding.accesing_android_features.SendSmsActivity">
+    tools:context="com.plracticalcoding.android_features.SendSmsActivity">
 
     <EditText
         android:id="@+id/edittextMessage"

@@ -1,4 +1,4 @@
-package com.plracticalcoding.multithreadingAndroid.UploadDatatoDB;
+package com.plracticalcoding.multithreading.UploadDatatoDB;
 
 import android.app.Application;
 import android.util.Log;

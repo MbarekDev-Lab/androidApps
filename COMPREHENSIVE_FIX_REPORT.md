@@ -328,8 +328,9 @@ private static volatile AppDatabase INSTANCE;
 
 #### 12. **AppDatabase.java - Wrong Entity Reference**
 **Original Code:**
+
 ```java
-import com.plracticalcoding.multithreadingAndroid.workManager.TaskEntity;
+import com.plracticalcoding.multithreading.workManager.TaskEntity;
 
 @Database(entities = {TaskEntity.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
