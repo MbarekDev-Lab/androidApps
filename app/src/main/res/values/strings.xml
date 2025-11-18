@@ -202,4 +202,7 @@
     <string name="hello_user">Hello, %1$s</string>
     <string name="error_enter_name">Please enter a name</string>
 
+    <!-- card_design.xml -->
+    <string name="card_text">sometext</string>
+
 </resources>

@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace 'com.plracticalcoding.myapplication'
-    compileSdk 34
+    compileSdk 35
 
     defaultConfig {
         applicationId "com.plracticalcoding.myapplication"
         minSdk 28
-        targetSdk 34
+        targetSdk 35
         versionCode 2
         versionName "2.0"
 
@@ -55,6 +55,8 @@ dependencies {
     implementation(libs.firebase.messaging)
     implementation libs.firebase.crashlytics.buildtools
     implementation libs.firebase.storage
+    implementation libs.recyclerview
+    implementation libs.cardview
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
