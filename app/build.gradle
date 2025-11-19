@@ -57,6 +57,7 @@ dependencies {
     implementation libs.firebase.storage
     implementation libs.recyclerview
     implementation libs.cardview
+    implementation libs.viewpager2
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
@@ -76,4 +77,5 @@ dependencies {
     
     // Concurrent Futures for ListenableWorker
     implementation "androidx.concurrent:concurrent-futures:1.1.0"
+    implementation 'com.squareup.picasso:picasso:2.8'
  }

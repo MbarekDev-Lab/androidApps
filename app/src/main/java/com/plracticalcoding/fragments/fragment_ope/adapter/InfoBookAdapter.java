@@ -1,5 +1,6 @@
 package com.plracticalcoding.fragments.fragment_ope.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -37,7 +38,7 @@ public class InfoBookAdapter extends RecyclerView.Adapter<InfoBookAdapter.InfoBo
     }
 
     @Override
-    public void onBindViewHolder(@NonNull InfoBookViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull InfoBookViewHolder holder, @SuppressLint("RecyclerView") int position) {
         ModelClass currentItem = modelClasses[position];
         holder.imageView.setImageResource(currentItem.getImage());
         holder.textView.setText(currentItem.getText());
