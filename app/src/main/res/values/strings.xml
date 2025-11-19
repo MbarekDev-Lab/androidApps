@@ -3,6 +3,7 @@
     <string name="create_account">do not have an account? <font color="#5b39c6">sign up</font> </string>
     <string name="forgot_password"><u>forgot password?</u></string>
 
+
     <string name="account_created">Account created successfully</string>
     <string name="account_not_created">Account not created</string>
     <string name="login_failed">Login failed</string>
@@ -204,5 +205,29 @@
 
     <!-- card_design.xml -->
     <string name="card_text">sometext</string>
+
+
+    <string name="united_kingdom">
+        <b>United Kingdom</b>\t\t\t\t\t\t\t: London is the capital of the United Kingdom.\n
+        <b>Lagest City</b>\t\t\t\t\t\t\t: London om.\n
+        <b>Natinal LanguaGE</b>\t\t\t\t\t\t\t: English United Kingdom.\n
+        <b>Currency </b>\t\t\t\t\t\t\t: GBP \n\n
+
+        \t\t Da\'s Vereinigte Königreich Großbritannien und Nordirland (englisch United Kingdom of Great Britain and Northern Irelandⓘ/?), kurz Vereinigtes Königreich (englisch United Kingdomⓘ/? , Abkürzung: UK), ist ein auf den Britischen Inseln vor der Nordwestküste Kontinentaleuropas gelegener Staat, der den größten Inselstaat Europas bildet.
+
+\n\n\t\t  Das Vereinigte Königreich ist eine Union aus vier Landesteilen, die auf Englisch meist als countries (Länder) oder nations (Nationen) bezeichnet werden: England, Wales, Schottland und Nordirland. Hauptstadt und bevölkerungsreichste Stadt des Vereinigten Königreichs sowie eines der größten Kultur-, Medien-, Handels- und Finanzzentren der Welt ist London. Weitere politisch, wirtschaftlich oder kulturell bedeutende Städte sind Birmingham, Manchester, Edinburgh, Glasgow, Liverpool und Belfast.
+
+\n\n\t\t  Das vom 17. bis 20. Jahrhundert unter der Herrschaft des Vereinigten Königreichs bestehende Britische Weltreich gilt als größtes Kolonialreich der Geschichte. In der Industrialisierung im 18. Jahrhundert entwickelte sich das Vereinigte Königreich zum ersten Industriestaat und war ab dem Machtverlust Frankreichs nach den Napoleonischen Kriegen im frühen 19. Jahrhundert bis zum Aufstieg der Vereinigten Staaten im späten 19. Jahrhundert die führende Weltmacht (Pax Britannica).
+
+\n\n\t\t  Heute steht das Vereinigte Königreich mit seinen knapp über 68 Millionen Einwohnern unter den bevölkerungsreichsten Staaten Europas an vierter Stelle, nach Russland, Deutschland und Frankreich. Der bevölkerungsreichste Landesteil ist England mit etwa 56 Millionen Einwohnern, während Schottland rund 5,5 Millionen, Wales 3,1 Millionen und Nordirland 1,9 Millionen Einwohner zählen. Es ist gemessen am nominalen Bruttoinlandsprodukt nach Indien und vor Frankreich die sechstgrößte Volkswirtschaft der Welt und nach Deutschland die zweitgrößte Europas. Darüber hinaus genießt das Land einen hohen Lebens- und Bildungsstandard sowie eine hohe Lebenserwartung.
+
+\n\n\t\t  Das Vereinigte Königreich ist Gründungsmitglied der NATO sowie der Vereinten Nationen. Es ist Atommacht, ständiges Mitglied des UN-Sicherheitsrates und einer der G7-Staaten. Von 1973 bis zu seinem Austritt im Jahr 2020 war es Mitglied der EWG bzw. später der Europäischen Union.
+
+
+
+
+    </string>
+
+
 
 </resources>
