@@ -20,12 +20,14 @@ public class CountriesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contries);
+
         viewPager2 = findViewById(R.id.viewpagerunitedkingdom);
         tabLayout = findViewById(R.id.tablayoutunitedkingdom);
-        ViewPagerApadpter viewPageAdapter = new ViewPagerApadpter(getSupportFragmentManager(),getLifecycle());
+
+        ViewPagerApadpter viewPageAdapter = new ViewPagerApadpter(getSupportFragmentManager(), getLifecycle());
         viewPager2.setAdapter(viewPageAdapter);
 
-        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager2, true, true,new TabLayoutMediator.TabConfigurationStrategy() {
+        TabLayoutMediator tabLayoutMediator = new TabLayoutMediator(tabLayout, viewPager2, true, true, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
             public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
                 switch (position) {
@@ -33,7 +35,7 @@ public class CountriesActivity extends AppCompatActivity {
                         tab.setText("United Kingdom");
                         break;
                     case 1:
-                        tab.setText("");
+                        tab.setText("France ");
                         break;
 
                 }

@@ -222,12 +222,24 @@
 \n\n\t\t  Heute steht das Vereinigte Königreich mit seinen knapp über 68 Millionen Einwohnern unter den bevölkerungsreichsten Staaten Europas an vierter Stelle, nach Russland, Deutschland und Frankreich. Der bevölkerungsreichste Landesteil ist England mit etwa 56 Millionen Einwohnern, während Schottland rund 5,5 Millionen, Wales 3,1 Millionen und Nordirland 1,9 Millionen Einwohner zählen. Es ist gemessen am nominalen Bruttoinlandsprodukt nach Indien und vor Frankreich die sechstgrößte Volkswirtschaft der Welt und nach Deutschland die zweitgrößte Europas. Darüber hinaus genießt das Land einen hohen Lebens- und Bildungsstandard sowie eine hohe Lebenserwartung.
 
 \n\n\t\t  Das Vereinigte Königreich ist Gründungsmitglied der NATO sowie der Vereinten Nationen. Es ist Atommacht, ständiges Mitglied des UN-Sicherheitsrates und einer der G7-Staaten. Von 1973 bis zu seinem Austritt im Jahr 2020 war es Mitglied der EWG bzw. später der Europäischen Union.
-
-
-
-
     </string>
 
+
+    <string name="france_text">
+        <b>France : </b>\t\t\t\t\t\t\t: London is the capital of the United Kingdom.\n
+        <b>Lagest City</b>\t\t\t\t\t\t\t: PARIS om.\n
+        <b>Natinal LanguaGE</b>\t\t\t\t\t\t\t: French .\n
+        <b>Currency </b>\t\t\t\t\t\t\t: EURO \n\n
+        \t\t France,[h] officially the French Republic,[i] is a country primarily located in Western
+
+\n\n\t\t  Europe. Its overseas regions and territories include French Guiana in South America,
+
+\n\n\t\t  Saint Pierre and Miquelon in the North Atlantic, the French West Indies, and many
+
+\n\n\t\t  islands in Oceania and the Indian Ocean, giving it the largest discontiguous exclusive
+
+\n\n\t\t  economic zone in the world. Metropolitan France shares borders with Belgium and Luxembourg to the north; Germany to the northeast; Switzerland to the east; Italy and
+    </string>
 
 
 </resources>

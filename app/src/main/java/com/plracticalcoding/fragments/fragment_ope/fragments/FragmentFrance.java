@@ -16,23 +16,23 @@ import com.plracticalcoding.myapplication.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-public class Fragmentunitedkingdom extends Fragment {
+public class FragmentFrance extends Fragment {
 
-    public static Fragmentunitedkingdom newInstace() {
-        return new Fragmentunitedkingdom();
+    public static FragmentFrance newInstace() {
+        return new FragmentFrance();
     }
 
-    private ImageView imageViewUnitedKingdom;
+    private ImageView imageViewUFrance;
     private ProgressBar progressBar;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmented_kingdom, container, false);
-        imageViewUnitedKingdom = view.findViewById(R.id.unitedkindomimgviw);
+        imageViewUFrance = view.findViewById(R.id.unitedkindomimgviw);
         progressBar = view.findViewById(R.id.progressBar);
 
-        Picasso.get().load("https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Flag_of_the_United_Kingdom_%281-2%29.svg/2560px-Flag_of_the_United_Kingdom_%281-2%29.svg.png").into(imageViewUnitedKingdom, new Callback() {
+        Picasso.get().load("https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/2560px-Flag_of_France.svg.png").into(imageViewUFrance, new Callback() {
             @Override
             public void onSuccess() {
                 progressBar.setVisibility(View.GONE);

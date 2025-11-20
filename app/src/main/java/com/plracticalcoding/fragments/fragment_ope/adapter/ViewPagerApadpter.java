@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.plracticalcoding.fragments.fragment_ope.fragments.FragmentFrance;
 import com.plracticalcoding.fragments.fragment_ope.fragments.Fragmentunitedkingdom;
 
 public class ViewPagerApadpter extends FragmentStateAdapter {
@@ -22,7 +23,7 @@ public class ViewPagerApadpter extends FragmentStateAdapter {
                 fragment = Fragmentunitedkingdom.newInstace();
                 break;
             case 1:
-             //   fragment = new SecondFragment();
+                fragment = FragmentFrance.newInstace();
                 break;
             default:
                 return null;
@@ -32,6 +33,6 @@ public class ViewPagerApadpter extends FragmentStateAdapter {
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 2;
     }
 }
