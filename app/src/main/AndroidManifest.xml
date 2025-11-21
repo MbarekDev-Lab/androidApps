@@ -15,7 +15,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission
         android:name="android.permission.BLUETOOTH"
@@ -38,7 +37,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
         tools:targetApi="34">
-
+        <activity
+            android:name=".ui.login.ChatAppLoginActivity"
+            android:exported="false"
+            android:label="@string/title_activity_chat_app_login" />
         <activity
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.WondersActivity"
             android:exported="false" />
@@ -53,8 +55,8 @@
             android:exported="false" />
         <activity
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.DialogFragmentActivity"
-            android:theme="@style/FragmentTheme"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/FragmentTheme" />
         <activity
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.SecontFragmentActivity"
             android:exported="false" />
