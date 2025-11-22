@@ -64,6 +64,13 @@
             android:padding="20dp"
             android:text="OpeFragmentActivity" />
 
+        <Button
+            android:id="@+id/chatappbtnid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="chat app" />
+
     </LinearLayout>
 
 </LinearLayout>

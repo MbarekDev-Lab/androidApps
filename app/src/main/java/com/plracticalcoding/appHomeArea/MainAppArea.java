@@ -12,6 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.plracticalcoding.calculator.CalculatorActivity;
+import com.plracticalcoding.chatApp.ui.login.LoginActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity;
 import com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActivity;
@@ -39,6 +40,7 @@ public class MainAppArea extends AppCompatActivity {
         Button calculator = findViewById(R.id.calculator);
         Button gussing_num = findViewById(R.id.gussing_num);
         Button opeFragmentActivity = findViewById(R.id.opeFragmentActivity);
+        Button chatappbtnid = findViewById(R.id.chatappbtnid);
 
 
         firbaseactivity.setOnClickListener(v -> {
@@ -73,6 +75,10 @@ public class MainAppArea extends AppCompatActivity {
             startActivity(new Intent(this, OpeFragmentActivity.class));
         });
 
+        chatappbtnid.setOnClickListener(v -> {
+            Toast.makeText(this, "chat app", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, LoginActivity.class));
+        });
 
     }
 }

@@ -1,4 +1,4 @@
-
+ 
 plugins {
     alias(libs.plugins.androidApplication)
     id 'com.google.gms.google-services'
@@ -19,7 +19,6 @@ android {
     }
     buildFeatures {
         dataBinding = true
-        viewBinding true
     }
 
     buildTypes {
