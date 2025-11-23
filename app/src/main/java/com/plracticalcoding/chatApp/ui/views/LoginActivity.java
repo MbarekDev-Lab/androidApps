@@ -1,6 +1,7 @@
-package com.plracticalcoding.chatApp.ui.login;
+package com.plracticalcoding.chatApp.ui.views;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,41 +13,38 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
+import com.plracticalcoding.chatApp.ui.login.LoggedInUserView;
+import com.plracticalcoding.chatApp.ui.login.LoginFormState;
+import com.plracticalcoding.chatApp.ui.login.LoginResult;
+import com.plracticalcoding.chatApp.ui.login.LoginViewModel;
+import com.plracticalcoding.chatApp.ui.login.LoginViewModelFactory;
 import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.myapplication.databinding.ActivityChatAppLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
-    private ActivityChatAppLoginBinding binding;
-
-    FirebaseAuth auth = FirebaseAuth.getInstance();
-
+    private ActivityChatAppLoginBinding loginBinding;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityChatAppLoginBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        loginBinding = ActivityChatAppLoginBinding.inflate(getLayoutInflater());
+        setContentView(loginBinding.getRoot());
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory()).get(LoginViewModel.class);
 
-        final TextInputEditText emaillogin = binding.emaillogin;
-        final TextInputEditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
-        final ProgressBar loadingProgressBar = binding.loading;
+        final TextInputEditText emaillogin = loginBinding.emaillogin;
+        final TextInputEditText passwordEditText = loginBinding.password;
+        final Button loginButton = loginBinding.loginbtn;
+        final ProgressBar loadingProgressBar = loginBinding.loading;
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -55,6 +53,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 loginButton.setEnabled(loginFormState.isDataValid());
+
                 if (loginFormState.getUsernameError() != null) {
                     emaillogin.setError(getString(loginFormState.getUsernameError()));
                 }
@@ -118,32 +117,12 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loadingProgressBar.setVisibility(View.VISIBLE);
-                // loginViewModel.login(emaillogin.getText().toString(), passwordEditText.getText().toString());
 
-                String email = emaillogin.getText().toString();
-                String password = passwordEditText.getText().toString();
+                //loginViewModel.login(emaillogin.getText().toString(), passwordEditText.getText().toString());
 
-                if (email.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(LoginActivity.this, "Please fill all the fields", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                            //startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                            finish();
-                        } else {
-                            Toast.makeText(LoginActivity.this, "Error !!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
+                startActivity(new Intent(LoginActivity.this, MainActivityChatApp.class));
             }
         });
-
-
     }
 
     private void updateUiWithUser(LoggedInUserView model) {

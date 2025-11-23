@@ -38,13 +38,21 @@
         android:theme="@style/AppTheme"
         tools:targetApi="34">
         <activity
-            android:name="com.plracticalcoding.chatApp.signup.SignupActivity"
+            android:name="com.plracticalcoding.chatApp.ui.views.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.MyApplication.Material"/>
+        <activity
+            android:name="com.plracticalcoding.chatApp.ui.views.SignupActivity"
             android:exported="false" />
         <activity
-            android:name="com.plracticalcoding.chatApp.ui.login.LoginActivity"
-            android:exported="false"
-            android:label="@string/title_activity_chat_app_login"
-            android:theme="@style/Theme.MyApplication.Material" />
+            android:name="com.plracticalcoding.chatApp.ui.views.MainActivityChatApp"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.chatApp.ui.views.MessagingActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.chatApp.ui.views.UpdateProfileActivity"
+            android:exported="false" />
         <activity
             android:name="com.plracticalcoding.fragments.fragment_ope.activities.WondersActivity"
             android:exported="false" />

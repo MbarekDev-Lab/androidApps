@@ -12,7 +12,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.plracticalcoding.calculator.CalculatorActivity;
-import com.plracticalcoding.chatApp.ui.login.LoginActivity;
+import com.plracticalcoding.chatApp.ui.views.LoginActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity;
 import com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActivity;

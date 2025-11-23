@@ -250,4 +250,7 @@
     <string name="invalid_password">Password must be >5 characters</string>
 
 
+    <string name="account">Don\'t you have an account yet? <font color="#FFE91E63"><b><u><i>Signup</i></u></b></font></string>
+
+
 </resources>

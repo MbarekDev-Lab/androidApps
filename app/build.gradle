@@ -59,6 +59,7 @@ dependencies {
     implementation libs.viewpager2
     implementation libs.annotation
     implementation libs.lifecycle.livedata.ktx
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
@@ -79,4 +80,7 @@ dependencies {
     // Concurrent Futures for ListenableWorker
     implementation "androidx.concurrent:concurrent-futures:1.1.0"
     implementation 'com.squareup.picasso:picasso:2.8'
+    implementation('com.yalantis:ucrop:2.2.0') {
+        exclude group: 'com.android.support', module: 'support-compat'
+    }
  }
