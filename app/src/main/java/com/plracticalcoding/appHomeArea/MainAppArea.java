@@ -2,6 +2,7 @@ package com.plracticalcoding.appHomeArea;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -19,8 +20,10 @@ import com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActi
 import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
+import com.plracticalcoding.restAPIRetrofit.MainRestApiActivity;
 
 public class MainAppArea extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class MainAppArea extends AppCompatActivity {
         Button gussing_num = findViewById(R.id.gussing_num);
         Button opeFragmentActivity = findViewById(R.id.opeFragmentActivity);
         Button chatappbtnid = findViewById(R.id.chatappbtnid);
+        Button mainRestApiActivity = findViewById(R.id.mainRestApiActivity);
 
 
         firbaseactivity.setOnClickListener(v -> {
@@ -75,9 +79,11 @@ public class MainAppArea extends AppCompatActivity {
             startActivity(new Intent(this, OpeFragmentActivity.class));
         });
 
-        chatappbtnid.setOnClickListener(v -> {
-            Toast.makeText(this, "chat app", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(this, LoginActivity.class));
+        mainRestApiActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainAppArea.this, MainRestApiActivity.class));
+            }
         });
 
     }

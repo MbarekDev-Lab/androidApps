@@ -36,11 +36,15 @@
         android:roundIcon="@drawable/sharp_adaptive_audio_mic_24"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:targetApi="34">
+        <activity
+            android:name="com.plracticalcoding.restAPIRetrofit.MainRestApiActivity"
+            android:exported="false" />
         <activity
             android:name="com.plracticalcoding.chatApp.ui.views.LoginActivity"
             android:exported="true"
-            android:theme="@style/Theme.MyApplication.Material"/>
+            android:theme="@style/Theme.MyApplication.Material" />
         <activity
             android:name="com.plracticalcoding.chatApp.ui.views.SignupActivity"
             android:exported="false" />
