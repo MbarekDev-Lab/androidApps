@@ -11,6 +11,9 @@
         <item name="colorOnSecondary">@color/black</item>
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
     </style>
+    <style name="WeatheApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+    </style>
 
     <style name="FragmentTheme" parent="Theme.MaterialComponents.Light.Dialog">
         <item name="colorPrimary">@color/purple_700</item>
@@ -46,5 +49,4 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
-
 </resources>

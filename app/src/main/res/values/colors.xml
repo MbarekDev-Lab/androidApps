@@ -16,5 +16,7 @@
     <color name="background_color_gn">#FFEB3B</color>
     <color name="orange">#FF5722</color>
     <color name="cyan_500">#00BCD4</color>
+    <color name="blue">#F10D6FBD</color>
+
 
 </resources>

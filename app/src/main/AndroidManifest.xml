@@ -39,6 +39,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="34">
         <activity
+            android:name="com.plracticalcoding.restWeatherApp.WeatherMainActivity"
+            android:exported="false" />
+        <activity
             android:name="com.plracticalcoding.restAPIRetrofit.MainRestApiActivity"
             android:exported="false" />
         <activity
