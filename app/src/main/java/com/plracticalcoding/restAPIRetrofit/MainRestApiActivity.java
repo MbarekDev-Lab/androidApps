@@ -39,7 +39,7 @@ public class MainRestApiActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")
+        Retrofit retrofit = new Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/")//https://jsonplaceholder.typicode.com/posts
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

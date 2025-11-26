@@ -21,6 +21,7 @@ import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
 import com.plracticalcoding.restAPIRetrofit.MainRestApiActivity;
+import com.plracticalcoding.restWeatherApp.WeatherMainActivity;
 
 public class MainAppArea extends AppCompatActivity {
 
@@ -45,6 +46,10 @@ public class MainAppArea extends AppCompatActivity {
         Button opeFragmentActivity = findViewById(R.id.opeFragmentActivity);
         Button chatappbtnid = findViewById(R.id.chatappbtnid);
         Button mainRestApiActivity = findViewById(R.id.mainRestApiActivity);
+        Button weatheractivitybtnid = findViewById(R.id.weatheractivitybtnid);
+
+
+
 
 
         firbaseactivity.setOnClickListener(v -> {
@@ -85,6 +90,15 @@ public class MainAppArea extends AppCompatActivity {
                 startActivity(new Intent(MainAppArea.this, MainRestApiActivity.class));
             }
         });
+        weatheractivitybtnid.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainAppArea.this, WeatherMainActivity.class));
+            }
+        });
+
+
 
     }
 }
