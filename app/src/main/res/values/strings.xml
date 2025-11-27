@@ -219,7 +219,7 @@
 
 \n\n\t\t  Das vom 17. bis 20. Jahrhundert unter der Herrschaft des Vereinigten Königreichs bestehende Britische Weltreich gilt als größtes Kolonialreich der Geschichte. In der Industrialisierung im 18. Jahrhundert entwickelte sich das Vereinigte Königreich zum ersten Industriestaat und war ab dem Machtverlust Frankreichs nach den Napoleonischen Kriegen im frühen 19. Jahrhundert bis zum Aufstieg der Vereinigten Staaten im späten 19. Jahrhundert die führende Weltmacht (Pax Britannica).
 
-\n\n\t\t  Heute steht das Vereinigte Königreich mit seinen knapp über 68 Millionen Einwohnern unter den bevölkerungsreichsten Staaten Europas an vierter Stelle, nach Russland, Deutschland und Frankreich. Der bevölkerungsreichste Landesteil ist England mit etwa 56 Millionen Einwohnern, während Schottland rund 5,5 Millionen, Wales 3,1 Millionen und Nordirland 1,9 Millionen Einwohner zählen. Es ist gemessen am nominalen Bruttoinlandsprodukt nach Indien und vor Frankreich die sechstgrößte Volkswirtschaft der Welt und nach Deutschland die zweitgrößte Europas. Darüber hinaus genießt das Land einen hohen Lebens- und Bildungsstandard sowie eine hohe Lebenserwartung.
+\n\n\t\t  Heute steht das Vereinigte Königreich mit seinen knapp über 68 Millionen Einwohnern unter den bevölkerungsreichsten Staaten Europas an vierter Stelle, nach Russland, Deutschland und Frankreich. Der bevölkerungsreichste Landesteil ist England mit etwa 56 Millionen Einwohnern, während Schottland rund 5,5 Millionen, Wales 3,1 Millionen und Nordirland 1,9 Millionen Einwohner zählen. Es ist gemessen am nominalen Bruttoinlandsprodukt nach Indien und vor Frankreich die sechstgrößte Volkswirtschaft der Welt und nach Deutschland die zweitgrößte Europas. Darüber hinaus genießt das Land einen hohen Lebens- and Bildungsstandard sowie eine hohe Lebenserwartung.
 
 \n\n\t\t  Das Vereinigte Königreich ist Gründungsmitglied der NATO sowie der Vereinten Nationen. Es ist Atommacht, ständiges Mitglied des UN-Sicherheitsrates und einer der G7-Staaten. Von 1973 bis zu seinem Austritt im Jahr 2020 war es Mitglied der EWG bzw. später der Europäischen Union.
     </string>
@@ -252,5 +252,18 @@
 
     <string name="account">Don\'t you have an account yet? <font color="#FFE91E63"><b><u><i>Signup</i></u></b></font></string>
 
+    <string name="location_permission_needed_title">Location Permission Needed</string>
+    <string name="location_permission_needed_message">This app needs the Fine Location permission to get the weather for your current location. Please grant the permission.</string>
+    <string name="permission_denied_title">Permission Denied</string>
+    <string name="permission_denied_message">Without location permission, the weather cannot be determined. Please enable it in the app settings.</string>
+    <string name="enable_gps_title">Enable GPS</string>
+    <string name="enable_gps_message">Location services are disabled. Please enable GPS to get weather by location.</string>
+    <string name="go_to_settings">Go to Settings</string>
+    <string name="location_permission_title">Location Permission</string>
+    <string name="location_permission_message">This app needs access to your location to provide weather updates. Please grant the location permission.</string>
+    <string name="location_permission_denied_message">You have denied the location permission. To use this feature, please enable it in the app settings.</string>
+    <string name="enable_gps_dialog_message">Your GPS seems to be disabled. Please enable it to get the weather by your current location.</string>
+    <string name="allow">Allow</string>
+    <string name="deny">Deny</string>
 
 </resources>

@@ -1,11 +1,11 @@
 package com.plracticalcoding.restWeatherApp;
 
-import android.Manifest;
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.widget.Button;
@@ -18,123 +18,205 @@ import androidx.core.content.ContextCompat;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.plracticalcoding.myapplication.R;
+import com.plracticalcoding.restWeatherApp.util.Constants;
 
 public class WeatherMainActivity extends AppCompatActivity {
-    Button buttonWheatherByLocation;
-    Button buttonWheatherByCity;
-    BottomSheetDialog bottomSheetDialog;
 
-    ActivityResultLauncher<String[]> requestPermissionLauncher;
+    private SharedPreferences sharedPreferences;
+    private int deniedAllPermissionsCount;
+    private int deniedLocationOnlyPermissionCount;
 
+    private ActivityResultLauncher<String[]> requestPermissionLauncher;
+
+    private enum DialogType {
+        PERMISSION,
+        APP_SETTINGS,
+        ENABLE_GPS
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather_main);
 
-        buttonWheatherByLocation = findViewById(R.id.buttonWheatherByLocation);
-        buttonWheatherByCity = findViewById(R.id.buttonWheatherByCity);
+        sharedPreferences = getSharedPreferences(Constants.SharedPrefrencesname, MODE_PRIVATE);
+        deniedAllPermissionsCount = sharedPreferences.getInt(Constants.keyForAllSharedPrefrencesCount, 0);
+        deniedLocationOnlyPermissionCount = sharedPreferences.getInt(Constants.keyForOnlySharedPrefrencesCount, 0);
 
-        registerforPermission();
+        Button buttonWeatherByLocation = findViewById(R.id.buttonWheatherByLocation);
+        Button buttonWeatherByCity = findViewById(R.id.buttonWheatherByCity);
 
-        buttonWheatherByCity.setOnClickListener(view -> {
+        registerForPermission();
+
+        buttonWeatherByCity.setOnClickListener(view -> {
             // startActivity(new Intent(WeatherMainActivity.this, WeatherByCityActivity.class));
         });
 
-
-        buttonWheatherByLocation.setOnClickListener(view -> {
-            if (hasFineLocationPermission()) {
-                checkLocationSetting();
-            } else if (hasCoarseLocationPermission()) {
-                showBottomSheetDialog("permission", Manifest.permission.ACCESS_FINE_LOCATION);
-            } else {
-                requestPermissionLauncher.launch(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION});
-
-            }
-        });
-
-
+        buttonWeatherByLocation.setOnClickListener(view -> handleWeatherByLocationClick());
     }
 
-    public void registerforPermission() {
-        requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), isGranted -> {
+    private void handleWeatherByLocationClick() {
+        if (hasFineLocationPermission()) {
+            checkLocationAndProceed();
+        } else if (hasCoarseLocationPermission()) {
+            handleFineLocationPermissionDenial();
+        } else {
+            handleAllPermissionsDenial();
+        }
+    }
 
-            boolean isFineGranted = Boolean.TRUE.equals(isGranted.get(Manifest.permission.ACCESS_FINE_LOCATION));
-            boolean isCoarseGranted = Boolean.TRUE.equals(isGranted.get(Manifest.permission.ACCESS_COARSE_LOCATION));
+    private void registerForPermission() {
+        requestPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), permissions -> {
+            boolean isFineGranted = Boolean.TRUE.equals(permissions.get(Constants.FINAL_LOCATION));
+            boolean isCoarseGranted = Boolean.TRUE.equals(permissions.get(Constants.FINAL_LOCATION_COARSE));
 
             if (isFineGranted) {
-                checkLocationSetting();
+                checkLocationAndProceed();
             } else if (isCoarseGranted) {
-                showBottomSheetDialog("permission", Manifest.permission.ACCESS_FINE_LOCATION);
+                handleFineLocationPermissionDenial();
             } else {
-                showBottomSheetDialog("permission", Manifest.permission.ACCESS_COARSE_LOCATION);
+                handleAllPermissionsDenial();
             }
         });
     }
 
+    private void handleFineLocationPermissionDenial() {
+        deniedLocationOnlyPermissionCount++;
+        savePermissionCount(Constants.keyForOnlySharedPrefrencesCount, deniedLocationOnlyPermissionCount);
 
-    private boolean hasFineLocationPermission() {//ContextCompat vs ActivityCompat
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED;
-
+        if (deniedLocationOnlyPermissionCount > 2) {
+            showBottomSheetDialog(DialogType.APP_SETTINGS);
+        } else {
+            showBottomSheetDialog(DialogType.PERMISSION);
+        }
     }
 
-    private boolean hasCoarseLocationPermission() {
-        return ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    private void handleAllPermissionsDenial() {
+        deniedAllPermissionsCount++;
+        savePermissionCount(Constants.keyForAllSharedPrefrencesCount, deniedAllPermissionsCount);
+
+        if (deniedAllPermissionsCount > 2) {
+            showBottomSheetDialog(DialogType.APP_SETTINGS);
+        } else {
+            showBottomSheetDialog(DialogType.PERMISSION);
+        }
     }
 
-    public void showBottomSheetDialog(String useFor, String permission) {
-        bottomSheetDialog = new BottomSheetDialog(this);
+    private void checkLocationAndProceed() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (locationManager != null && !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            showBottomSheetDialog(DialogType.ENABLE_GPS);
+        } else {
+            getWeatherByLocation();
+        }
+    }
+
+    private void getWeatherByLocation() {
+        // startActivity(new Intent(this, WeatherByLocationActivity.class));
+    }
+
+    private void showBottomSheetDialog(DialogType dialogType) {
+        BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(this);
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog);
-        Button buttonAllow = bottomSheetDialog.findViewById(R.id.buttonAllow);
-        Button buttonDeny = bottomSheetDialog.findViewById(R.id.buttonDeny);
+
         TextView textViewTitle = bottomSheetDialog.findViewById(R.id.textViewTitle);
         TextView textViewMessage = bottomSheetDialog.findViewById(R.id.textViewMessage);
-
-
-        if (useFor.equals("location")) {
-            if (buttonAllow != null) {
-                buttonAllow.setText("Go");
-            }
-            if (textViewTitle != null) {
-                textViewTitle.setText("Location");
-            }
-            if (textViewMessage != null) {
-                textViewMessage.setText("Go to location setting to run the app, location must be on");
-            }
-        } else {
-            if (textViewMessage != null) {
-                textViewMessage.setText("To get the weather by Location, this app requires location permission.");
-            }
-        }
-
+        Button buttonAllow = bottomSheetDialog.findViewById(R.id.buttonAllow);
+        Button buttonDeny = bottomSheetDialog.findViewById(R.id.buttonDeny);
 
         if (buttonAllow != null) {
-            buttonAllow.setOnClickListener(view -> {
-                if (useFor.equals("location")) {
-                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(intent);
-                } else {
-                    requestPermissionLauncher.launch(new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION});
-                }
-                bottomSheetDialog.dismiss();
-            });
+            buttonAllow.setText(R.string.allow);
+        }
+        if (buttonDeny != null) {
+            buttonDeny.setText(R.string.deny);
         }
 
-        if (buttonDeny != null) {
-            buttonDeny.setOnClickListener(view -> {
-                bottomSheetDialog.dismiss();
-            });
+        switch (dialogType) {
+            case PERMISSION:
+                if (textViewTitle != null) {
+                    textViewTitle.setText(R.string.location_permission_title);
+                }
+                if (textViewMessage != null) {
+                    textViewMessage.setText(R.string.location_permission_message);
+                }
+                if (buttonAllow != null) {
+                    buttonAllow.setOnClickListener(v -> {
+                        requestLocationPermissions();
+                        bottomSheetDialog.dismiss();
+                    });
+                }
+                if (buttonDeny != null) {
+                    buttonDeny.setOnClickListener(v -> bottomSheetDialog.dismiss());
+                }
+                break;
+            case APP_SETTINGS:
+                if (textViewTitle != null) {
+                    textViewTitle.setText(R.string.permission_denied_title);
+                }
+                if (textViewMessage != null) {
+                    textViewMessage.setText(R.string.location_permission_denied_message);
+                }
+                if (buttonAllow != null) {
+                    buttonAllow.setText(R.string.go_to_settings);
+                    buttonAllow.setOnClickListener(v -> {
+                        openAppSettings();
+                        bottomSheetDialog.dismiss();
+                    });
+                }
+                if (buttonDeny != null) {
+                    buttonDeny.setOnClickListener(v -> bottomSheetDialog.dismiss());
+                }
+                break;
+            case ENABLE_GPS:
+                if (textViewTitle != null) {
+                    textViewTitle.setText(R.string.enable_gps_title);
+                }
+                if (textViewMessage != null) {
+                    textViewMessage.setText(R.string.enable_gps_dialog_message);
+                }
+                if (buttonAllow != null) {
+                    buttonAllow.setText(R.string.go_to_settings);
+                    buttonAllow.setOnClickListener(v -> {
+                        openLocationSettings();
+                        bottomSheetDialog.dismiss();
+                    });
+                }
+                if (buttonDeny != null) {
+                    buttonDeny.setOnClickListener(v -> bottomSheetDialog.dismiss());
+                }
+                break;
         }
+
         bottomSheetDialog.show();
     }
 
-    public void checkLocationSetting() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (locationManager != null && !locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            showBottomSheetDialog("location", "");
-        } else {
-            // Location is enabled, proceed with weather fetching
-        }
+    private void requestLocationPermissions() {
+        requestPermissionLauncher.launch(new String[]{Constants.FINAL_LOCATION, Constants.FINAL_LOCATION_COARSE});
     }
 
+    private void openAppSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", getPackageName(), null);
+        intent.setData(uri);
+        startActivity(intent);
+    }
+
+    private void openLocationSettings() {
+        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+        startActivity(intent);
+    }
+
+    private boolean hasFineLocationPermission() {
+        return ContextCompat.checkSelfPermission(this, Constants.FINAL_LOCATION) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private boolean hasCoarseLocationPermission() {
+        return ContextCompat.checkSelfPermission(this, Constants.FINAL_LOCATION_COARSE) == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void savePermissionCount(String key, int count) {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key, count);
+        editor.apply();
+    }
 }
