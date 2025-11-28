@@ -17,11 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/toolbarLogin"
@@ -34,14 +32,15 @@
         </com.google.android.material.appbar.AppBarLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
+            app:layout_constraintWidth_max="480dp"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayoutLogin"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appBarLayoutLogin">
+            app:layout_constraintEnd_toEndOf="parent">
 
             <ImageView
                 android:layout_width="200dp"
@@ -61,7 +60,6 @@
                     android:id="@+id/emaillogin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="96dp"
                     android:autofillHints="@string/prompt_email"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
@@ -82,7 +80,6 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:autofillHints="@string/prompt_password"
                     android:hint="@string/prompt_password"
                     android:imeActionLabel="@string/action_sign_in_short"
@@ -108,8 +105,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="64dp"
-                android:layout_marginBottom="64dp"
                 android:visibility="gone" />
 
         </LinearLayout>

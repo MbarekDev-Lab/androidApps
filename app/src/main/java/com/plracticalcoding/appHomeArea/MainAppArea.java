@@ -21,7 +21,6 @@ import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
 import com.plracticalcoding.restAPIRetrofit.MainRestApiActivity;
-import com.plracticalcoding.restWeatherApp.WeatherMainActivity;
 
 public class MainAppArea extends AppCompatActivity {
 
@@ -94,7 +93,7 @@ public class MainAppArea extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainAppArea.this, WeatherMainActivity.class));
+                startActivity(new Intent(MainAppArea.this, com.plracticalcoding.restWeatherApp.view.MainWeatherActivity.class));
             }
         });
 

@@ -3,6 +3,8 @@ package com.plracticalcoding.firbase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -12,26 +14,30 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.plracticalcoding.myapplication.databinding.ActivitySignupBinding;
+import com.plracticalcoding.myapplication.R;
 
 public class SignUp extends AppCompatActivity {
 
-    private ActivitySignupBinding binding;
+    private EditText editTextEmail, editTextPassword;
+    private Button buttonSignup;
     private FirebaseAuth auth = FirebaseAuth.getInstance();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivitySignupBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        setContentView(R.layout.activity_signup);
 
-        binding.buttonSignup.setOnClickListener(new View.OnClickListener() {
+        editTextEmail = findViewById(R.id.editTextEmailSignup);
+        editTextPassword = findViewById(R.id.editTextPasswordSignup);
+        buttonSignup = findViewById(R.id.buttonSignup);
+
+        buttonSignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String userEmail = binding.editTextEmailSignup.getText().toString();
-                String userPassword = binding.editTextPasswordSignup.getText().toString();
+                String userEmail = editTextEmail.getText().toString();
+                String userPassword = editTextPassword.getText().toString();
                 signUpFirbasr(userEmail, userPassword);
             }
         });
