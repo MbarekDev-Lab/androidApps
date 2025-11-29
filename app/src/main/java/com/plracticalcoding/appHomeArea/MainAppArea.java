@@ -13,7 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.plracticalcoding.calculator.CalculatorActivity;
-import com.plracticalcoding.chatApp.ui.views.LoginActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity;
 import com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActivity;
@@ -46,6 +45,7 @@ public class MainAppArea extends AppCompatActivity {
         Button chatappbtnid = findViewById(R.id.chatappbtnid);
         Button mainRestApiActivity = findViewById(R.id.mainRestApiActivity);
         Button weatheractivitybtnid = findViewById(R.id.weatheractivitybtnid);
+        Button mainDatabindingActivityactivitybtnid = findViewById(R.id.mainDatabindingActivityactivitybtnid);
 
 
 
@@ -90,10 +90,15 @@ public class MainAppArea extends AppCompatActivity {
             }
         });
         weatheractivitybtnid.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainAppArea.this, com.plracticalcoding.restWeatherApp.view.MainWeatherActivity.class));
+            }
+        });
+        mainDatabindingActivityactivitybtnid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainAppArea.this, com.plracticalcoding.androidLibraries.MainDatabindingActivity.class));
             }
         });
 

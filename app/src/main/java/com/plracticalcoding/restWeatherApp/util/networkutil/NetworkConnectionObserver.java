@@ -4,21 +4,21 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkRequest;
 
 import androidx.annotation.NonNull;
 
 public class NetworkConnectionObserver {
-
     private final ConnectivityManager connectivityManager;
     private final ConnectivityManager.NetworkCallback networkCallback;
     private final NetworkStatusListener listener;
 
-    public NetworkConnectionObserver(Context context, NetworkStatusListener listener){
+    public NetworkConnectionObserver(Context context, NetworkStatusListener listener) {
 
         this.listener = listener;
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        networkCallback = new ConnectivityManager.NetworkCallback(){
+        networkCallback = new ConnectivityManager.NetworkCallback() {
 
             @Override
             public void onAvailable(@NonNull Network network) {
@@ -41,29 +41,26 @@ public class NetworkConnectionObserver {
 
     }
 
-    public void registerCallback(){
+    public void registerCallback() {
 
         connectivityManager.registerDefaultNetworkCallback(networkCallback);
 
-        /*
+
         NetworkRequest networkRequest = new NetworkRequest.Builder()
                 .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                        .build();
+                .build();
 
-        connectivityManager.registerNetworkCallback(networkRequest,networkCallback);
-
-         */
-
+        connectivityManager.registerNetworkCallback(networkRequest, networkCallback);
     }
 
-    public void unregisterCallback(){
+    public void unregisterCallback() {
         connectivityManager.unregisterNetworkCallback(networkCallback);
     }
 
-    public void checkNetworkConnection(){
+    public void checkNetworkConnection() {
         NetworkCapabilities networkCapabilities = connectivityManager.getNetworkCapabilities(connectivityManager.getActiveNetwork());
         boolean isNetworkAvailable = networkCapabilities != null && networkCapabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET);
-        if (!isNetworkAvailable){
+        if (!isNetworkAvailable) {
             listener.onNetworkLost();
         }
     }

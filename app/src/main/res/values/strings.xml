@@ -265,5 +265,9 @@
     <string name="enable_gps_dialog_message">Your GPS seems to be disabled. Please enable it to get the weather by your current location.</string>
     <string name="allow">Allow</string>
     <string name="deny">Deny</string>
+    <string name="user_name">User Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="sign_up">SIGN UP</string>
 
 </resources>

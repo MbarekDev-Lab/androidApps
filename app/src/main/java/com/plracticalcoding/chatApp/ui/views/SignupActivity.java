@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.plracticalcoding.chatApp.data.model.User;
-import com.plracticalcoding.myapplication.databinding.ActivitySignupBinding;
+import com.plracticalcoding.myapplication.databinding.ActivitySignupNewBinding;
 import com.squareup.picasso.Picasso;
 import com.yalantis.ucrop.UCrop;
 
@@ -35,7 +35,7 @@ import java.util.ArrayList;
 
 public class SignupActivity extends AppCompatActivity {
 
-    ActivitySignupBinding signupBinding;
+    ActivitySignupNewBinding signupBinding;
     ActivityResultLauncher<String[]> permissionsResultLauncher;
 
     int deniedPermissionCount = 0;
@@ -65,7 +65,7 @@ public class SignupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        signupBinding = ActivitySignupBinding.inflate(getLayoutInflater());
+        signupBinding = ActivitySignupNewBinding.inflate(getLayoutInflater());
         setContentView(signupBinding.getRoot());
 
         if (Build.VERSION.SDK_INT > 33) {

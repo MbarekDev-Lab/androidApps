@@ -82,6 +82,12 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="Weather app" />
+        <Button
+            android:id="@+id/mainDatabindingActivityactivitybtnid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text=" Data binding Activitya" />
 
     </LinearLayout>
 
