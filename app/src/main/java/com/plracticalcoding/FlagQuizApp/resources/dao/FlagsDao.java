@@ -31,15 +31,14 @@ public class FlagsDao {
         }
 
         cursor.close();
+
         return recordList;
     }
 
     public ArrayList<FlagsModel> getRandomThreeRecords(DatabaseCopyHelper helper,int id){
-
         ArrayList<FlagsModel> recordList = new ArrayList<>();
         SQLiteDatabase database = helper.getReadableDatabase();
-        Cursor cursor = database.rawQuery("SELECT * FROM flags WHERE flag_id != ? ORDER BY RANDOM() LIMIT 3"
-                ,new String[]{String.valueOf(id)});
+        Cursor cursor = database.rawQuery("SELECT * FROM flags WHERE flag_id != ? ORDER BY RANDOM() LIMIT 3",new String[]{String.valueOf(id)});
 
         int idIndex = cursor.getColumnIndex("flag_id");
         int countryNameIndex = cursor.getColumnIndex("country_name");

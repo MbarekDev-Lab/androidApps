@@ -44,7 +44,6 @@ public class FragmentHome extends Fragment {
     public void createAndOpenDatabase(){
 
         try(DatabaseCopyHelper helper = new DatabaseCopyHelper(requireActivity())) {
-
             helper.createDataBase();
             helper.openDataBase();
 

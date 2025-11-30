@@ -24,7 +24,6 @@ import java.util.HashSet;
 
 
 public class FragmentQuiz extends Fragment {
-
     FragmentQuizBinding fragmentQuizBinding;
     FlagsDao dao;
     DatabaseCopyHelper databaseCopyHelper;
@@ -61,7 +60,6 @@ public class FragmentQuiz extends Fragment {
 
         showData();
 
-
         fragmentQuizBinding.buttonA.setOnClickListener(v -> {
             answerControl(fragmentQuizBinding.buttonA);
         });
@@ -74,10 +72,9 @@ public class FragmentQuiz extends Fragment {
         fragmentQuizBinding.buttonD.setOnClickListener(v -> {
             answerControl(fragmentQuizBinding.buttonD);
         });
+
         fragmentQuizBinding.buttonNext.setOnClickListener(v -> {
-
             questionNumber++;
-
             if (questionNumber > 9) {
                 if (!optionControl) {
                     emptyNumber++;
@@ -108,10 +105,7 @@ public class FragmentQuiz extends Fragment {
             }
 
             optionControl = false;
-
-
         });
-
 
         return fragmentQuizBinding.getRoot();
     }
