@@ -8,9 +8,8 @@
     tools:context="com.plracticalcoding.appHomeArea.MainAppArea">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <Button
@@ -76,18 +75,41 @@
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="chat app" />
+
         <Button
             android:id="@+id/weatheractivitybtnid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text="Weather app" />
+
         <Button
             android:id="@+id/mainDatabindingActivityactivitybtnid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="20dp"
             android:text=" Data binding Activitya" />
+
+        <Button
+            android:id="@+id/mainFlagQuizActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Flag Quiz Activity" />
+
+
+        <Button
+            android:id="@+id/mainFlagQuizActivityff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Flag Quiz gggActivity" />
+        <Button
+            android:id="@+id/mainFlagffQuizActivityff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:text="Flag Quiz ggfffgActivity" />
 
     </LinearLayout>
 

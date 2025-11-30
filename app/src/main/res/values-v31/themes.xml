@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Base.Theme_FlagQuiz2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowSplashScreenAnimatedIcon">@drawable/quiz_24px</item>
+        <item name="android:windowSplashScreenIconBackgroundColor">@color/green</item>
+        <item name="android:windowSplashScreenBrandingImage">@drawable/mbarek_dev_logo</item>
+        <item name="colorPrimary">@color/blue</item>
+    </style>
+</resources>

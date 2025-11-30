@@ -27,14 +27,14 @@ public class MainAppArea extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+//        try {
+//            Thread.sleep(3000L);
+//        } catch (InterruptedException e) {
+//            throw new RuntimeException(e);
+//        }
+
         setContentView(R.layout.activity_main_app_area);
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
 
         Button multithreadingActivity = findViewById(R.id.areaMultithreadingActivity);
         Button firbaseactivity = findViewById(R.id.firbaseactivity);
@@ -46,9 +46,7 @@ public class MainAppArea extends AppCompatActivity {
         Button mainRestApiActivity = findViewById(R.id.mainRestApiActivity);
         Button weatheractivitybtnid = findViewById(R.id.weatheractivitybtnid);
         Button mainDatabindingActivityactivitybtnid = findViewById(R.id.mainDatabindingActivityactivitybtnid);
-
-
-
+        Button mainFlagQuizActivity = findViewById(R.id.mainFlagQuizActivity);
 
 
         firbaseactivity.setOnClickListener(v -> {
@@ -102,6 +100,12 @@ public class MainAppArea extends AppCompatActivity {
             }
         });
 
+        mainFlagQuizActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainAppArea.this, com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity.class));
+            }
+        });
 
 
     }
