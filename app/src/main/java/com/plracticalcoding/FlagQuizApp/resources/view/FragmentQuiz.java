@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavOptions;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import com.plracticalcoding.FlagQuizApp.resources.model.FlagsModel;
 import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.myapplication.databinding.FragmentQuizBinding;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -48,6 +51,11 @@ public class FragmentQuiz extends Fragment {
 
         dao = new FlagsDao();
         databaseCopyHelper = new DatabaseCopyHelper(requireActivity());
+        try {
+            databaseCopyHelper.createDataBase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         flagList = dao.getRandomTenRecords(databaseCopyHelper);
 
         for (FlagsModel flag : flagList) {
@@ -79,13 +87,16 @@ public class FragmentQuiz extends Fragment {
                 if (!optionControl) {
                     emptyNumber++;
                 }
+
                 //Toast.makeText(requireActivity(),"The quiz is finished.",Toast.LENGTH_LONG).show();
                 Bundle bundle = new Bundle();
                 bundle.putInt("correct", correctNumber);
                 bundle.putInt("wrong", wrongNumber);
                 bundle.putInt("empty", emptyNumber);
 
-                //Navigation.findNavController(v).navigate(R.id.action_fragmentQuiz_to_fragmentResult, bundle, new NavOptions.Builder().setPopUpTo(R.id.fragmentHome, false).build());
+                Navigation.findNavController(v).navigate(R.id.action_fragmentQuiz_to_fragmentResult,
+                        bundle,
+                        new NavOptions.Builder().setPopUpTo(R.id.fragmentHome, false).build());
                 /*
                     NavDirections direction = FragmentQuizDirections.actionFragmentQuizToFragmentResult()
                             .setCorrect(correctNumber)
@@ -114,6 +125,7 @@ public class FragmentQuiz extends Fragment {
 
         fragmentQuizBinding.textViewQuestion.setText(getResources().getString(R.string.question_number).concat(String.valueOf(questionNumber + 1)));
         correctFlag = flagList.get(questionNumber);
+
         //fragmentQuizBinding.imageViewFlag.setImageResource(getResources().getIdentifier(correctFlag.getFlagName(),"drawable",requireActivity().getPackageName()));
         int resId = getResId(correctFlag.getFlagName(), R.drawable.class);
         if (resId != -1) {
@@ -150,9 +162,9 @@ public class FragmentQuiz extends Fragment {
     }
 
     public void answerControl(Button button) {
-
         String clickedOptionText = button.getText().toString();
         String correctAnswer = correctFlag.countryName;
+
         if (clickedOptionText.equals(correctAnswer)) {
             correctNumber++;
             fragmentQuizBinding.textViewCorrect.setText(String.valueOf(correctNumber));
@@ -170,7 +182,6 @@ public class FragmentQuiz extends Fragment {
                     break;
                 }
             }
-
         }
 
         for (Button btn : buttons) {
@@ -178,7 +189,6 @@ public class FragmentQuiz extends Fragment {
         }
 
         optionControl = true;
-
     }
 
     public void setButtonToInitialProperties() {

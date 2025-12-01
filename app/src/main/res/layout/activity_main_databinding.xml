@@ -4,77 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="data"
             type="com.plracticalcoding.androidLibraries.model.Info" />
     </data>
 
-    <LinearLayout
-        android:id="@+id/maindatabindingkayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="50dp"
-        android:orientation="vertical"
-        tools:context="com.plracticalcoding.androidLibraries.MainDatabindingActivity">
+        tools:context="com.plracticalcoding.databinding.MainDatabindingActivity">
 
         <TextView
             android:id="@+id/data_str_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@{data.str_name}" />
+            android:text="@{data.str_name}"
+            app:layout_constraintBottom_toTopOf="@+id/data_str_age"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
 
         <TextView
             android:id="@+id/data_str_age"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@{data.str_age}" />
+            android:layout_marginTop="16dp"
+            android:text="@{data.str_age}"
+            app:layout_constraintBottom_toTopOf="@+id/data_str_gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_str_name" />
 
         <TextView
             android:id="@+id/data_str_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@{data.str_gender}" />
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-        <EditText
-            android:id="@+id/editTextTextMessagef"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="@{data.str_age}" />
-
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp" />
-
-
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:text="Send" />
-
-
-    </LinearLayout>
+            android:layout_marginTop="16dp"
+            android:text="@{data.str_gender}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/data_str_age" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

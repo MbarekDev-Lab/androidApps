@@ -62,7 +62,7 @@ public class FragmentResult extends Fragment {
 
         fragmentResultBinding.buttonNewQuiz.setOnClickListener(v -> {
 
-            //    Navigation.findNavController(v).popBackStack(R.id.fragmentHome,false);
+               Navigation.findNavController(v).popBackStack(R.id.fragmentHome,false);
 
         });
 
@@ -71,7 +71,6 @@ public class FragmentResult extends Fragment {
             requireActivity().finish();
 
         });
-
 
         return fragmentResultBinding.getRoot();
     }
