@@ -39,7 +39,6 @@ public class MusicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
-
         buttonPlayPause = findViewById(R.id.buttonPlayPause);
         buttonNext = findViewById(R.id.buttonNext);
         buttonPrevious = findViewById(R.id.buttonPrevious);
@@ -222,8 +221,6 @@ public class MusicActivity extends AppCompatActivity {
                                 mediaPlayer.prepare();
                                 mediaPlayer.start();
                                 buttonPlayPause.setBackgroundResource(R.drawable.pause);
-
-
                                 textViewFileNameMusic.clearAnimation();
                                 textViewFileNameMusic.startAnimation(animation);
                             } catch (IOException e) {

@@ -7,21 +7,19 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity;
-import com.plracticalcoding.androidLibraries.MainDatabindingActivity;
 import com.plracticalcoding.calculator.CalculatorActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity;
-import com.plracticalcoding.mp3player.Mp3PLayerMainActivity;
 import com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
 import com.plracticalcoding.myapplication.databinding.ActivityMainAppAreaBinding;
 import com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
 import com.plracticalcoding.restAPIRetrofit.MainRestApiActivity;
-import com.plracticalcoding.restWeatherApp.view.MainWeatherActivity;
+import com.plracticalcoding.mp3player.Mp3PLayerMainActivity;
 
 public class MainAppArea extends AppCompatActivity {
+
     private ActivityMainAppAreaBinding binding;
 
     @Override
@@ -64,15 +62,15 @@ public class MainAppArea extends AppCompatActivity {
         });
 
         binding.weatheractivitybtnid.setOnClickListener(view -> {
-            startActivity(new Intent(MainAppArea.this, MainWeatherActivity.class));
+            startActivity(new Intent(MainAppArea.this, com.plracticalcoding.restWeatherApp.view.MainWeatherActivity.class));
         });
 
         binding.mainDatabindingActivityactivitybtnid.setOnClickListener(view -> {
-            startActivity(new Intent(MainAppArea.this, MainDatabindingActivity.class));
+            startActivity(new Intent(MainAppArea.this, com.plracticalcoding.androidLibraries.MainDatabindingActivity.class));
         });
 
         binding.mainFlagQuizActivity.setOnClickListener(view -> {
-            startActivity(new Intent(MainAppArea.this, MainFlagQuizActivity.class));
+            startActivity(new Intent(MainAppArea.this, com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity.class));
         });
 
         binding.mp3PLayerMainActivity.setOnClickListener(view -> {
