@@ -1,105 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    tools:context="com.plracticalcoding.appHomeArea.MainAppArea">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context="com.plracticalcoding.appHomeArea.MainAppArea">
 
-        <Button
-            android:id="@+id/mainRestApiActivity"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Rest Api Activity" />
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/areaMultithreadingActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/multithreading_activity" />
+            <Button
+                android:id="@+id/mainRestApiActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Rest Api Activity" />
 
-        <Button
-            android:id="@+id/firbaseactivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/firebase" />
+            <Button
+                android:id="@+id/areaMultithreadingActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/multithreading_activity" />
 
-        <Button
-            android:id="@+id/asyncTasksActivity2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/async_activity" />
+            <Button
+                android:id="@+id/firbaseactivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/firebase" />
 
-        <Button
-            android:id="@+id/quiz_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/quiz_game" />
+            <Button
+                android:id="@+id/asyncTasksActivity2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/async_activity" />
 
-
-        <Button
-            android:id="@+id/calculator"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="@string/calculator" />
-
-        <Button
-            android:id="@+id/gussing_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Gussing Number" />
-
-        <Button
-            android:id="@+id/opeFragmentActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="OpeFragmentActivity" />
-
-        <Button
-            android:id="@+id/chatappbtnid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="chat app" />
-
-        <Button
-            android:id="@+id/weatheractivitybtnid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Weather app" />
-
-        <Button
-            android:id="@+id/mainDatabindingActivityactivitybtnid"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text=" Data binding Activitya" />
-
-        <Button
-            android:id="@+id/mainFlagQuizActivity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
-            android:text="Flag Quiz Activity" />
+            <Button
+                android:id="@+id/quiz_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/quiz_game" />
 
 
+            <Button
+                android:id="@+id/calculator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="@string/calculator" />
+
+            <Button
+                android:id="@+id/gussing_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Gussing Number" />
+
+            <Button
+                android:id="@+id/opeFragmentActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="OpeFragmentActivity" />
+
+            <Button
+                android:id="@+id/chatappbtnid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="chat app" />
+
+            <Button
+                android:id="@+id/weatheractivitybtnid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Weather app" />
+
+            <Button
+                android:id="@+id/mainDatabindingActivityactivitybtnid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text=" Data binding Activity" />
+
+            <Button
+                android:id="@+id/mainFlagQuizActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Flag Quiz Activity" />
 
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/mp3PLayerMainActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:text="Mp3 PLayer MainActivity " />
 
-</ScrollView>
+
+        </LinearLayout>
+
+    </ScrollView>
+</layout>

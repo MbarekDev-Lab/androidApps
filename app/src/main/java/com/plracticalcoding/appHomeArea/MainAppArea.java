@@ -2,111 +2,81 @@ package com.plracticalcoding.appHomeArea;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import androidx.databinding.DataBindingUtil;
 
+import com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity;
+import com.plracticalcoding.androidLibraries.MainDatabindingActivity;
 import com.plracticalcoding.calculator.CalculatorActivity;
 import com.plracticalcoding.firbase.FirbaseMainActivity;
 import com.plracticalcoding.fragments.fragment_ope.activities.OpeFragmentActivity;
+import com.plracticalcoding.mp3player.Mp3PLayerMainActivity;
 import com.plracticalcoding.multithreading.workManager.MultithreadingAndroidActivity;
 import com.plracticalcoding.myapplication.R;
+import com.plracticalcoding.myapplication.databinding.ActivityMainAppAreaBinding;
 import com.plracticalcoding.quizGame.number_guessing.GassingNumberSplash;
 import com.plracticalcoding.quizGame.mathGame.GameActivity;
 import com.plracticalcoding.restAPIRetrofit.MainRestApiActivity;
+import com.plracticalcoding.restWeatherApp.view.MainWeatherActivity;
 
 public class MainAppArea extends AppCompatActivity {
-
+    private ActivityMainAppAreaBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        try {
-//            Thread.sleep(3000L);
-//        } catch (InterruptedException e) {
-//            throw new RuntimeException(e);
-//        }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main_app_area);
 
-        setContentView(R.layout.activity_main_app_area);
-
-
-        Button multithreadingActivity = findViewById(R.id.areaMultithreadingActivity);
-        Button firbaseactivity = findViewById(R.id.firbaseactivity);
-        Button quiz_game = findViewById(R.id.quiz_game);
-        Button calculator = findViewById(R.id.calculator);
-        Button gussing_num = findViewById(R.id.gussing_num);
-        Button opeFragmentActivity = findViewById(R.id.opeFragmentActivity);
-        Button chatappbtnid = findViewById(R.id.chatappbtnid);
-        Button mainRestApiActivity = findViewById(R.id.mainRestApiActivity);
-        Button weatheractivitybtnid = findViewById(R.id.weatheractivitybtnid);
-        Button mainDatabindingActivityactivitybtnid = findViewById(R.id.mainDatabindingActivityactivitybtnid);
-        Button mainFlagQuizActivity = findViewById(R.id.mainFlagQuizActivity);
-
-
-        firbaseactivity.setOnClickListener(v -> {
+        binding.firbaseactivity.setOnClickListener(v -> {
             Toast.makeText(this, "firbaseactivity APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, FirbaseMainActivity.class));
         });
 
-        multithreadingActivity.setOnClickListener(v -> {
+        binding.areaMultithreadingActivity.setOnClickListener(v -> {
             Toast.makeText(this, "MULTITHREADING APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, MultithreadingAndroidActivity.class));
         });
 
-
-        quiz_game.setOnClickListener(v -> {
+        binding.quizGame.setOnClickListener(v -> {
             Toast.makeText(this, "quiz_game APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, GameActivity.class));
         });
 
-
-        calculator.setOnClickListener(v -> {
+        binding.calculator.setOnClickListener(v -> {
             Toast.makeText(this, "CalculatorActivity APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, CalculatorActivity.class));
         });
 
-        gussing_num.setOnClickListener(v -> {
+        binding.gussingNum.setOnClickListener(v -> {
             Toast.makeText(this, "Gussing_num APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, GassingNumberSplash.class));
         });
 
-        opeFragmentActivity.setOnClickListener(v -> {
+        binding.opeFragmentActivity.setOnClickListener(v -> {
             Toast.makeText(this, "ope Fragment Activity APP", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(this, OpeFragmentActivity.class));
         });
 
-        mainRestApiActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainAppArea.this, MainRestApiActivity.class));
-            }
-        });
-        weatheractivitybtnid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainAppArea.this, com.plracticalcoding.restWeatherApp.view.MainWeatherActivity.class));
-            }
-        });
-        mainDatabindingActivityactivitybtnid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainAppArea.this, com.plracticalcoding.androidLibraries.MainDatabindingActivity.class));
-            }
+        binding.mainRestApiActivity.setOnClickListener(view -> {
+            startActivity(new Intent(MainAppArea.this, MainRestApiActivity.class));
         });
 
-        mainFlagQuizActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainAppArea.this, com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity.class));
-            }
+        binding.weatheractivitybtnid.setOnClickListener(view -> {
+            startActivity(new Intent(MainAppArea.this, MainWeatherActivity.class));
         });
 
+        binding.mainDatabindingActivityactivitybtnid.setOnClickListener(view -> {
+            startActivity(new Intent(MainAppArea.this, MainDatabindingActivity.class));
+        });
 
+        binding.mainFlagQuizActivity.setOnClickListener(view -> {
+            startActivity(new Intent(MainAppArea.this, MainFlagQuizActivity.class));
+        });
+
+        binding.mp3PLayerMainActivity.setOnClickListener(view -> {
+            startActivity(new Intent(MainAppArea.this, Mp3PLayerMainActivity.class));
+        });
     }
 }

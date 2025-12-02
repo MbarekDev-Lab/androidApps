@@ -39,9 +39,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="34">
         <activity
-            android:theme="@style/Base.Theme_FlagQuiz"
-            android:name="com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity"
+            android:name="com.plracticalcoding.mp3player.MusicActivity"
             android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.mp3player.Mp3PLayerMainActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.plracticalcoding.FlagQuizApp.resources.view.MainFlagQuizActivity"
+            android:exported="false"
+            android:theme="@style/Base.Theme_FlagQuiz" />
         <activity
             android:name="com.plracticalcoding.androidLibraries.MainDatabindingActivity"
             android:exported="false" />
